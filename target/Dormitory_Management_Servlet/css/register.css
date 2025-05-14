@@ -1,0 +1,96 @@
+@charset "UTF-8";
+	* {
+	  box-sizing: border-box;
+	  margin: 0;
+	  padding: 0;
+	  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	}
+	
+	body {
+	  background: linear-gradient(to right, #74ebd5, #acb6e5);
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  min-height: 100vh;
+	  padding: 20px;
+	}
+	
+	.form-container {
+	  background-color: #fff;
+	  padding: 30px 40px;
+	  border-radius: 12px;
+	  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+	  width: 100%;
+	  max-width: 600px;
+	}
+	
+	header h2 {
+	  text-align: center;
+	  margin-bottom: 25px;
+	  color: #333;
+	}
+	
+	.form-grid {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+	  gap: 20px;
+	}
+	
+	.form-grid .column label {
+	  display: block;
+	  margin-bottom: 5px;
+	  font-weight: bold;
+	  color: #555;
+	}
+	
+	.form-grid .column input {
+	  width: 100%;
+	  padding: 10px 12px;
+	  margin-bottom: 15px;
+	  border: 1px solid #ccc;
+	  border-radius: 8px;
+	  transition: border-color 0.3s ease;
+	}
+	
+	.form-grid .column input:focus {
+	  border-color: #4a90e2;
+	  outline: none;
+	}
+	
+	/* Nút đăng ký */
+	.btn-submit {
+	  width: 100%;
+	  padding: 12px;
+	  background-color: #4a90e2;
+	  border: none;
+	  color: #fff;
+	  font-weight: bold;
+	  border-radius: 8px;
+	  cursor: pointer;
+	  transition: transform 0.2s ease, background-color 0.3s ease;
+	}
+	
+	.btn-submit:hover {
+	  transform: scale(1.05);
+	  background-color: #357ABD;
+	}
+	
+	/* Link quay lại */
+	.back-link {
+	  display: inline-block;
+	  margin-top: 15px;
+	  color: #4a90e2;
+	  text-decoration: none;
+	  font-size: 0.9rem;
+	  transition: color 0.2s ease;
+	}
+	.back-link:hover {
+	  color: #2c598e;
+	}
+	
+	/* Thông báo lỗi */
+	.error {
+	  color: #e74c3c;
+	  margin-top: 10px;
+	  text-align: center;
+	}

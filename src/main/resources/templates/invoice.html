@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: 'Noto Serif', serif;
+            margin: 40px;
+            color: #333;
+            background: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #007bff;
+            font-size: 24px;
+            margin: 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .grid div {
+            padding: 8px;
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        .grid div.label {
+            font-weight: bold;
+            background: #e9ecef;
+        }
+        .status-paid {
+            color: green;
+            font-weight: bold;
+        }
+        .status-unpaid {
+            color: red;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>HÓA ĐƠN PHÒNG KÝ TÚC XÁ</h1>
+        </div>
+        <div class="grid">
+            <div class="label">Mã Hóa Đơn:</div>
+            <div>%s</div>
+            <div class="label">Họ Tên:</div>
+            <div>%s</div>
+            <div class="label">Mã Sinh Viên:</div>
+            <div>%s</div>
+            <div class="label">Phòng:</div>
+            <div>%s</div>
+            <div class="label">Loại Phòng:</div>
+            <div>%s</div>
+            <div class="label">Ngày Phát Hành:</div>
+            <div>%s</div>
+            <div class="label">Ngày Thanh Toán:</div>
+            <div>%s</div>
+            <div class="label">Số Tiền:</div>
+            <div>%s</div>
+            <div class="label">Trạng Thái:</div>
+            <div class="%s">%s</div>
+        </div>
+        <div class="footer">
+            Ký túc xá VKU - Hệ thống quản lý hiện đại
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration>
+	   
+	<hibernate-configuration>
+	    <session-factory>
+        	<property name="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</property>
+			<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+			<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/dormitorymanagement_servlet</property>
+			<property name="hibernate.connection.username">root</property>
+			<property name="hibernate.connection.password"></property>
+			<property name="hibernate.hbm2ddl.auto">update</property>
+			<property name="show_sql">true</property>
+			<property name="hibernate.format_sql">true</property>
+			<property name="hibernate.c3p0.validate">false</property>
+			<mapping class="entity.Student"/>
+			<mapping class="entity.Manager"/>
+			<mapping class="entity.Room"/>
+			<mapping class="entity.Contract"/>
+			<mapping class="entity.Invoice"/>
+			<mapping class="entity.Building"/>
+			<mapping class="entity.Message"/>
+
+
+	    </session-factory>
+	</hibernate-configuration>

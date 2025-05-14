@@ -1,0 +1,91 @@
+package servlet;
+
+import entity.Building;
+import entity.Room;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import util.HibernateUtil;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@WebServlet("/admin/EditRoomServlet")
+public class EditRoomServlet extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String roomID = request.getParameter("roomID");
+            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+            Session session = sessionFactory.openSession();
+
+            Room room = session.get(Room.class, Long.parseLong(roomID));
+            if (room == null) {
+                throw new Exception("Phòng không tồn tại!");
+            }
+
+            List<Building> buildings = session.createQuery("from Building", Building.class).list();
+            session.close();
+
+            request.setAttribute("room", room);
+            request.setAttribute("buildings", buildings);
+            request.getRequestDispatcher("/admin/editRoom.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("errorMessage", "Lỗi khi tải thông tin phòng: " + e.getMessage());
+            request.getRequestDispatcher("/admin/editRoom.jsp").forward(request, response);
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String roomID = request.getParameter("roomID");
+            String buildingID = request.getParameter("buildingID");
+            String roomType = request.getParameter("roomType");
+            long price = Long.parseLong(request.getParameter("price"));
+
+            Map<String, Integer> capacityMap = new HashMap<>();
+            capacityMap.put("Đơn", 1);
+            capacityMap.put("Đôi", 2);
+            capacityMap.put("Tập thể", 4);
+            int capacity = capacityMap.getOrDefault(roomType, 1);
+
+            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+
+            Room room = session.get(Room.class, Long.parseLong(roomID));
+            if (room == null) {
+                throw new Exception("Phòng không tồn tại!");
+            }
+
+            Building building = session.get(Building.class, Long.parseLong(buildingID));
+            if (building == null) {
+                throw new Exception("Tòa nhà không tồn tại!");
+            }
+
+            room.setBuilding(building);
+            room.setRoomType(roomType);
+            room.setCapacity(capacity);
+            room.setPrice(price);
+
+            session.merge(room);
+            transaction.commit();
+            session.close();
+
+            response.sendRedirect(request.getContextPath() + "/admin/dashboard?section=rooms");
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("errorMessage", "Lỗi khi cập nhật phòng: " + e.getMessage());
+            request.getRequestDispatcher("/admin/editRoom.jsp").forward(request, response);
+        }
+    }
+}
