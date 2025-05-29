@@ -1,6 +1,6 @@
 package entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.*; 
 import java.util.Date;
 
 @Entity
@@ -12,6 +12,12 @@ public class Message {
 
     @Column(name = "senderID")
     private String senderID;
+    
+    @Column(name = "sender_name")
+    private String senderName; 
+
+    @Column(name = "avatar_url", columnDefinition = "LONGTEXT")
+    private String avatarUrl; 
 
     @Column(name = "receiverID")
     private String receiverID;
@@ -24,6 +30,9 @@ public class Message {
 
     @Column(name = "fileData", columnDefinition = "LONGBLOB")
     private byte[] fileData;
+
+    @Column(name = "fileName")
+    private String fileName; 
 
     @Column(name = "timestamp")
     @Temporal(TemporalType.TIMESTAMP)
@@ -49,6 +58,12 @@ public class Message {
         this.senderID = senderID;
     }
 
+    public String getSenderName() { return senderName; }
+    public void setSenderName(String senderName) { this.senderName = senderName; }
+
+    public String getAvatarUrl() { return avatarUrl; }
+    public void setAvatarUrl(String avatarUrl) { this.avatarUrl = avatarUrl; }
+    	
     public String getReceiverID() {
         return receiverID;
     }
@@ -79,6 +94,14 @@ public class Message {
 
     public void setFileData(byte[] fileData) {
         this.fileData = fileData;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public Date getTimestamp() {

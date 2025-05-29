@@ -28,12 +28,6 @@ public class Manager {
     @Column(name = "Password")
     private String password;
     
-    @Column(name = "ipAddress")
-    private String ipAddress;
-
-    @Column(name = "port")
-    private Integer port;
-
     // Getters and Setters
     public int getManagerID() { return managerID; }
     public void setManagerID(int managerID) { this.managerID = managerID; }
@@ -49,11 +43,4 @@ public class Manager {
     public void setEmail(String email) { this.email = email; }
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
-    
-    public String getIpAddress() { return ipAddress; }
-    public void setIpAddress(String ipAddress) { this.ipAddress = ipAddress; }
-
-    public Integer getPort() { return port; }
-    public void setPort(Integer port) { this.port = port; }
-
 }

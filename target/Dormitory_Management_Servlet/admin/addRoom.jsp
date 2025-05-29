@@ -91,6 +91,9 @@
 <body>
     <div class="container form-wrapper">
         <h2 class="form-title">Thêm Phòng Mới</h2>
+        <c:if test="${not empty errorMessage}">
+            <div class="alert alert-danger">${errorMessage}</div>
+        </c:if>
 			<form action="${pageContext.request.contextPath}/admin/addRoom" method="post" class="form">            
 			<div class="form-group">
                 <label for="buildingID">Tòa nhà:</label>
@@ -101,8 +104,24 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="floor">Tầng (1-5):</label>
+                <select id="floor" name="floor" class="form-control" required>
+                    <c:forEach var="i" begin="1" end="5">
+                        <option value="${i}">${i}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="roomNumber">Số phòng (1-20):</label>
+                <select id="roomNumber" name="roomNumber" class="form-control" required>
+                    <c:forEach var="i" begin="1" end="20">
+                        <option value="${i}">${i}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="roomType">Loại phòng:</label>
-                <select id="roomType" name="roomType" class="form-control">
+                <select id="roomType" name="roomType" class="form-control" required>
                     <option value="Đơn">Đơn</option>
                     <option value="Đôi">Đôi</option>
                     <option value="Tập thể">Tập thể</option>

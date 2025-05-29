@@ -8,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import com.google.gson.Gson;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,23 +17,47 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
-@WebServlet("/rooms")
+@WebServlet({"/rooms", "/student/getRooms"})
 public class RoomServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    private SessionFactory sessionFactory;
+
+    @Override
+    public void init() throws ServletException {
+        sessionFactory = HibernateUtil.getSessionFactory();
+        if (sessionFactory == null) {
+            throw new ServletException("SessionFactory is null!");
+        }
+    }
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String servletPath = request.getServletPath();
+
+        if ("/student/getRooms".equals(servletPath)) {
+            handleGetRoomsJson(request, response);
+        } else if ("/rooms".equals(servletPath)) {
+            handleGetRoomsForAdmin(request, response);
+        } else {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Invalid endpoint");
+        }
+    }
+
+    // Xử lý yêu cầu lấy danh sách phòng cho admin dashboard
+    private void handleGetRoomsForAdmin(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         Session session = null;
         try {
-            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-            if (sessionFactory == null) {
-                throw new Exception("SessionFactory is null!");
-            }
             session = sessionFactory.openSession();
 
             String section = request.getParameter("section");
-            request.setAttribute("section", section != null ? section : "rooms"); // Mặc định là "rooms" nếu không có section
+            request.setAttribute("section", section != null ? section : "rooms");
 
             // Chỉ lấy dữ liệu phòng nếu section là "rooms"
             if ("rooms".equalsIgnoreCase(section)) {
@@ -50,6 +76,57 @@ public class RoomServlet extends HttpServlet {
             e.printStackTrace();
             request.setAttribute("errorMessage", "Lỗi khi lấy dữ liệu phòng và tòa nhà: " + e.getMessage());
             request.getRequestDispatcher("/admin/dashboard.jsp").forward(request, response);
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+    }
+
+    // Xử lý yêu cầu lấy danh sách phòng dưới dạng JSON cho student dashboard
+    private void handleGetRoomsJson(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        String building = request.getParameter("building");
+        String floorPrefix = request.getParameter("floor");
+
+        if (building == null || floorPrefix == null) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().write("{\"error\": \"Missing building or floor parameter\"}");
+            return;
+        }
+
+        Session session = null;
+        try {
+            session = sessionFactory.openSession();
+
+            Query<Room> query = session.createQuery(
+                "FROM Room r JOIN r.building b WHERE b.name = :building AND r.roomName LIKE :floorPrefix",
+                Room.class
+            );
+            query.setParameter("building", building);
+            query.setParameter("floorPrefix", floorPrefix + "%");
+            List<Room> rooms = query.getResultList();
+
+            // Chuyển đổi dữ liệu thành JSON
+            List<Map<String, Object>> roomData = rooms.stream().map(room -> {
+                Map<String, Object> map = new HashMap<>();
+                map.put("roomName", room.getRoomName() != null ? room.getRoomName() : "");
+                map.put("roomType", room.getRoomType() != null ? room.getRoomType() : "");
+                map.put("price", room.getPrice() != null ? room.getPrice() : 0L);
+                map.put("capacity", room.getCapacity() != null ? room.getCapacity() : 0);
+                map.put("currentOccupants", room.getCurrentOccupants() != null ? room.getCurrentOccupants() : 0);
+                return map;
+            }).collect(Collectors.toList());
+            
+            // Gửi JSON về client
+            response.getWriter().write(new Gson().toJson(roomData));
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write("{\"error\": \"Server error: " + e.getMessage() + "\"}");
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();

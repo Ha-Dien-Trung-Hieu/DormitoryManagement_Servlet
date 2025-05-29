@@ -21,7 +21,6 @@ import java.io.IOException;
 @WebServlet("/login")
 public class LoginStudentServlet extends HttpServlet {
 	private static final SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-    private static final int DEFAULT_PORT = 12345;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
@@ -57,9 +56,6 @@ public class LoginStudentServlet extends HttpServlet {
                  .uniqueResult();
 
              if (student != null && BCrypt.checkpw(password, student.getPassword())) {
-            	 student.setIpAddress(ipAddress);
-                 student.setPort(DEFAULT_PORT);
-                 session.update(student);
                  System.out.println("Login successful: IDSinhVien=" + idSinhVien);
             	 HttpSession ses = request.getSession();
             	 ses.setAttribute("student", student);

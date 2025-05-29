@@ -2,6 +2,7 @@
          pageEncoding="UTF-8" session="true" import="entity.Manager, entity.Student" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
 
 
 <!DOCTYPE html>
@@ -63,6 +64,57 @@
         .btn-delete { background: linear-gradient(90deg, #e74c3c, #c0392b); }
         .btn-add { background: linear-gradient(90deg, #2ecc71, #27ae60); }
         .btn-edit { background: linear-gradient(90deg, #0080ff, #3333ff); }
+        .content-card { background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); margin-bottom: 20px; }
+		.content-card h3 { font-size: 18px; color: #333; margin-bottom: 15px; }
+		.content-table { width: 100%; border-collapse: collapse; font-size: 14px; color: #34495e; }
+		.content-table th, .content-table td { padding: 10px; text-align: left; border-bottom: 1px solid #dfe4ea; transition: background 0.3s ease; }
+		.content-table th { font-weight: 600; color: #2c3e50; background: rgba(78, 115, 223, 0.1); }
+		.content-table td { color: #7f8c8d; }
+		.content-table tr:hover td { background: rgba(78, 115, 223, 0.05); }
+		.content-table tr:first-child { background: rgba(78, 115, 223, 0.1); }
+		.chat-card h3 { font-size: 20px; color: #fff; margin-bottom: 15px; font-weight: 700; text-align: center; background: linear-gradient(90deg, #4a90e2, #357abd); padding: 10px; border-radius: 8px 8px 0 0; }
+		.chat-form-group { margin-bottom: 15px; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+		.chat-form-group label { display: block; font-size: 14px; color: #2c3e50; margin-bottom: 5px; font-weight: 600; }
+		.chat-form-group input[type="text"] { width: 100%; padding: 8px; border: 1px solid #dfe4ea; border-radius: 4px; font-size: 14px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); transition: border-color 0.3s ease; }
+		.chat-form-group input[type="text"]:focus { border-color: #4a90e2; outline: none; }
+		.chat-form-group select { width: 100%; padding: 8px; border: 1px solid #dfe4ea; border-radius: 4px; font-size: 14px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); transition: border-color 0.3s ease; }
+		.chat-form-group select:focus { border-color: #4a90e2; outline: none; }
+        .chat-box { height: 400px; overflow-y: auto; padding: 15px; border: 1px solid #dfe4ea; border-radius: 8px; background: #f9f9f9; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+		.chat-message { display: flex; margin-bottom: 15px; align-items: flex-start; }
+		.chat-message.chat-sent { flex-direction: row-reverse; }
+		.chat-message.chat-sent .chat-message-content { align-items: flex-end; }
+		.chat-message.chat-received .chat-avatar { margin-right: 10px; }
+		.chat-message.chat-sent .chat-avatar { margin-left: 10px; }
+		.chat-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+		.chat-message-content { display: flex; flex-direction: column; min-width: 0; }
+		.chat-message-header { display: flex; font-size: 14px; margin-bottom: 5px; }
+		.chat-message.chat-sent .chat-message-header { justify-content: flex-end; }
+		.chat-header-group { display: flex; align-items: center; gap: 5px; }
+		.chat-name { font-weight: 600; color: #2c3e50; }
+		.chat-message.chat-sent .chat-name { color: #4a90e2; }
+		.chat-time { color: #888; font-size: 12px; flex-shrink: 0; }
+		.chat-message.chat-sent .chat-time { margin-right: 0; margin-left: 0; }
+		.chat-message.chat-received .chat-time { margin-right: 0; margin-left: 0; }
+		.chat-text { padding: 8px 12px; border-radius: 12px; word-wrap: break-word; font-size: 14px; line-height: 1.4; min-width: 0; }
+		.chat-message.chat-received .chat-text { background: #e9ecef; color: #34495e; }
+		.chat-message.chat-sent .chat-text { background: #4a90e2; color: #fff; }
+		.chat-text a { color: inherit; text-decoration: underline; }
+		.chat-text a:hover { text-decoration: none; }
+      	.avatar-upload { margin: 10px 0; text-align: center; }
+		.btn-upload { background-color: #4CAF50; color: white; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; margin: 0 5px; }
+		.btn-upload:disabled { background-color: #cccccc; cursor: not-allowed; }
+        .chat-input-group { display: flex; gap: 10px; padding: 10px; background: #fff; border-radius: 0 0 8px 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+		.chat-input-group input[type="text"] { flex: 1; padding: 8px; border: 1px solid #dfe4ea; border-radius: 4px; font-size: 14px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); transition: border-color 0.3s ease; }
+		.chat-input-group input[type="text"]:focus { border-color: #4a90e2; outline: none; }
+		.chat-input-group input[type="file"] { padding: 8px 0; border: none; font-size: 14px; flex: 0 0 200px; }
+		.chat-input-group button { padding: 8px 15px; border: none; border-radius: 4px; font-weight: 500; cursor: pointer; color: #fff; transition: transform 0.3s ease, background 0.3s ease; }
+		.chat-input-group button:first-child { background: linear-gradient(90deg, #3498db, #2980b9); }
+		.chat-input-group button:first-child:hover { transform: scale(1.05); background: linear-gradient(90deg, #2980b9, #3498db); }
+		.chat-input-group button:last-child { background: linear-gradient(90deg, #3498db, #2980b9); }
+		.chat-input-group button:last-child:hover { transform: scale(1.05); background: linear-gradient(90deg, #2980b9, #3498db); }
+        .chat-input-group button { background: linear-gradient(90deg, #3498db, #2980b9); }
+		.chat-input-group button :hover { transform: scale(1.05); background: linear-gradient(90deg, #2980b9, #3498db); }
+        
         .right-panel { width: 280px; background: #fff; padding: 20px; box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1); }
         .profile-card { padding: 20px; border-radius: 12px; background: linear-gradient(135deg, #ecf0f1, #dfe4ea); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); }
         .avatar { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 15px; border: 3px solid #4a90e2; object-fit: cover; }
@@ -159,7 +211,7 @@
                             </thead>
                             <tbody>
                                 <c:forEach var="student" items="${students}">
-			                    <c:set var="roomID" value="${not empty student.contract and student.contract.status == 'Active' ? student.contract.room.roomID : 'null'}" />
+                            	<c:set var="roomName" value="${not empty student.contract and student.contract.status == 'Active' ? student.contract.room.roomName : 'null'}" />
 			                    <c:set var="roomType" value="${not empty student.contract and student.contract.status == 'Active' ? student.contract.room.roomType : 'null'}" />
 			                    <c:set var="roomPrice" value="${not empty student.contract and student.contract.status == 'Active' ? student.contract.room.price : 'null'}" />
 			                    <tr onclick="selectStudent(this)"
@@ -173,7 +225,7 @@
 			                        data-email="${student.email}"
 			                        data-cccd="${student.CCCDID}"
 			                        data-status="${student.status}"
-			                        data-roomid="${roomID}"
+                                	data-roomname="${roomName}"
 			                        data-roomtype="${roomType}"
 			                        data-roomprice="${roomPrice}">
 			                        <td>${student.idSinhVien}</td>
@@ -232,13 +284,13 @@
 					                <td id="detailStatus"></td>
 					            </tr>
 					            <tr id="roomInfo" style="display: none;">
-					                <th>ID Phòng:</th>
-					                <td id="detailRoomID"></td>
+					                <th>Tên Phòng:</th>
+					                <td id="detailRoomName"></td>
 					            </tr>
-					            <tr id="roomTypeInfo" style="display: none;">
+								<tr id="roomTypeInfo" style="display: none;">
 					                <th>Loại Phòng:</th>
 					                <td id="detailRoomType"></td>
-					            </tr>
+					                					            </tr>
 					            <tr id="roomPriceInfo" style="display: none;">
 					                <th>Giá Phòng:</th>
 					                <td id="detailRoomPrice"></td>
@@ -261,8 +313,8 @@
 				        <table class="room-table">
 				            <thead>
 				                <tr>
-				                    <th>RoomID</th>
-				                    <th>BuildingID</th>
+				                    <th>RoomName</th>
+				                    <th>Building</th>
 				                    <th>RoomType</th>
 				                    <th>CurrentOccupants/Capacity</th>
 				                    <th>Price</th>
@@ -277,7 +329,7 @@
 				                        data-occupants="${room.currentOccupants}"
 				                        data-capacity="${room.capacity}"
 				                        data-price="${room.price}">
-				                        <td>${room.roomID}</td>
+				                        <td>${room.roomName}</td>
 				                        <td>${room.building.name}</td>
 				                        <td>${room.roomType}</td>
 				                        <td>${room.currentOccupants}/${room.capacity}</td>
@@ -295,7 +347,7 @@
 				    </div>
 				    <!-- Nút tương tác -->
 				    <div class="action-buttons">
-						<button class="btn-sort" onclick="sortRooms()">Sắp xếp</button>
+						<button id="sortButton" class="btn-sort">Sắp xếp</button>
 					    <button class="btn-add" onclick="addRoom()">Thêm phòng</button>
 					    <button class="btn-delete" onclick="deleteSelectedRoom()">Xóa phòng</button>
 					    <button class="btn-edit" onclick="editSelectedRoom()">Điều chỉnh Phòng</button>			
@@ -429,31 +481,35 @@
 			       
 			    </c:when>
                 <c:when test="${param.section == 'chat'}">
-				    <div class="content-card">
+				   <div class="content-card chat-card">
 				        <h3>Chat</h3>
-				        <div class="form-group">
+				        <div class="form-group chat-form-group">
+				            <label for="searchStudent">Tìm kiếm sinh viên:</label>
+				            <input type="text" id="searchStudent" placeholder="Nhập tên, phòng hoặc ID sinh viên" oninput="filterStudents()">
+				        </div>
+				        <div class="form-group chat-form-group">
 				            <label for="chatWith">Chat với:</label>
 				            <select id="chatWith" onchange="changeChatChannel()">
 				                <option value="">Chọn sinh viên hoặc phòng</option>
 				                <!-- Danh sách sinh viên -->
 				                <c:forEach var="student" items="${allStudents}">
-				                    <option value="${student.idSinhVien}|${student.ipAddress}|${student.port}">
-				                        ${student.fullName}
+				                    <option value="${fn:escapeXml(student.idSinhVien)}" data-name="${fn:escapeXml(student.fullName)}" data-room="${fn:escapeXml(student.contract != null ? student.contract.room.roomID : '')}">
+				                        ${fn:escapeXml(student.fullName)} (ID: ${fn:escapeXml(student.idSinhVien)})
 				                    </option>
 				                </c:forEach>
 				                <!-- Danh sách phòng -->
-				                <c:forEach var="room" items="${allRooms}">
-				                    <option value="room_${room.roomID}|192.168.30.101|${room.port}">
-				                        Phòng ${room.roomID}
-				                    </option>
+								<c:forEach var="room" items="${allRooms}">
+								        <option value="room_${fn:escapeXml(room.roomID)}" data-roomname="${fn:escapeXml(room.roomName)}">
+								            Phòng ${fn:escapeXml(room.roomName)}
+            				            </option>
 				                </c:forEach>
 				            </select>
 				        </div>
 				        <div id="chat-box" class="chat-box">
 				            <!-- Tin nhắn và file sẽ hiển thị ở đây -->
 				        </div>
-				        <div class="input-group">
-				            <input type="text" id="messageInput" placeholder="Nhập tin nhắn...">
+				       <div class="input-group chat-input-group">
+				            <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." onkeypress="if(event.key === 'Enter') sendMessage()">
 				            <input type="file" id="fileInput" accept=".pdf,.doc,.docx">
 				            <button onclick="sendMessage()">Gửi Tin Nhắn</button>
 				            <button onclick="sendFile()">Gửi File</button>
@@ -523,7 +579,7 @@
 	        const email = row.getAttribute('data-email') || '';
 	        const CCCDID = row.getAttribute('data-cccd') || '';
 	        const status = row.getAttribute('data-status') || '';
-	        const roomID = row.getAttribute('data-roomid') || 'null';
+	        const roomName = row.getAttribute('data-roomname') || 'null';
 	        const roomType = row.getAttribute('data-roomtype') || 'null';
 	        const roomPrice = row.getAttribute('data-roomprice') || 'null';
 	
@@ -545,11 +601,11 @@
 	        document.getElementById('detailStatus').innerText = status;
 	
 	        // Hiển thị thông tin phòng nếu có
-	        if (roomID !== 'null' && roomType !== 'null' && roomPrice !== 'null') {
+	        if (roomName !== 'null' && roomType !== 'null' && roomPrice !== 'null') {
 	            document.getElementById('roomInfo').style.display = 'table-row';
 	            document.getElementById('roomTypeInfo').style.display = 'table-row';
 	            document.getElementById('roomPriceInfo').style.display = 'table-row';
-	            document.getElementById('detailRoomID').innerText = roomID;
+	            document.getElementById('detailRoomName').innerText = roomName;
 	            document.getElementById('detailRoomType').innerText = roomType;
 	            document.getElementById('detailRoomPrice').innerText = roomPrice + ' VNĐ';
 	        } else {
@@ -671,37 +727,7 @@
 	        }
 	    }
 	
-	    // --------------------- Room --------------------------
-	    document.addEventListener('DOMContentLoaded', function() {
-	        console.log("DOM đã tải xong, bắt đầu kiểm tra sự kiện");
-
-	        // Kiểm tra bảng phòng có tồn tại không
-	        const roomTable = document.querySelector('.room-table tbody');
-	        if (roomTable) {
-	            console.log("Bảng phòng được tìm thấy");
-	            const rows = roomTable.querySelectorAll('tr');
-	            rows.forEach(row => {
-	                row.addEventListener('click', function() {
-	                    console.log("Sự kiện click trên hàng phòng được kích hoạt:", row);
-	                    selectRoom(row);
-	                });
-	            });
-	        } else {
-	            console.log("Không tìm thấy bảng phòng");
-	        }
-
-	        const actionButtons = document.querySelectorAll('.action-buttons button');
-	        actionButtons.forEach(button => {
-	            console.log("Nút được tìm thấy:", button);
-	            button.addEventListener('click', function(event) {
-	                console.log("Sự kiện click trên nút:", event.target.textContent);
-	                const func = event.target.getAttribute('onclick');
-	                if (func) {
-	                    eval(func); 
-	                }
-	            });
-	        });
-	    });
+	    // --------------------- Room --------------------------  
 	    function fetchBuildings() {
 		    const xhr = new XMLHttpRequest();
 		    xhr.open('GET', contextPath + '/buildings', true);
@@ -727,20 +753,63 @@
 	        row.classList.add('selected');
 	        selectedRoomId = row.getAttribute('data-id');
 	    }
-	    
-	    function sortRooms() {
+	    let currentSort = 'name';
+	    function sortRooms(sortBy = 'name') {
 	        const tbody = document.querySelector('.room-table tbody');
 	        if (!tbody) return;
+
 	        const rows = Array.from(tbody.querySelectorAll('tr'));
-	        const order = { 'Đơn': 1, 'Đôi': 2, 'Tập thể': 3 };
-	        rows.sort((a, b) => {
-	            const typeA = a.getAttribute('data-type');
-	            const typeB = b.getAttribute('data-type');
-	            return order[typeA] - order[typeB];
-	        });
+	        
+	        if (sortBy === 'type') {
+	            // roomType
+	            const order = { 'Đơn': 1, 'Đôi': 2, 'Tập thể': 3 };
+	            rows.sort((a, b) => {
+	                const typeA = a.getAttribute('data-type') || '';
+	                const typeB = b.getAttribute('data-type') || '';
+	                return (order[typeA] || 999) - (order[typeB] || 999);
+	            });
+	        } else {
+	            // roomName 
+	            rows.sort((a, b) => {
+	                const nameA = a.cells[0].textContent.trim() || '';
+	                const nameB = b.cells[0].textContent.trim() || '';
+	                const buildingA = nameA[0] || 'Z';
+	                const buildingB = nameB[0] || 'Z';
+	                const numA = nameA.slice(1) || '9999';
+	                const numB = nameB.slice(1) || '9999';
+	                if (buildingA === buildingB) {
+	                    return numA.localeCompare(numB, undefined, { numeric: true });
+	                }
+	                return buildingA.localeCompare(buildingB);
+	            });
+	        }
+
 	        rows.forEach(row => tbody.appendChild(row));
+	        currentSort = sortBy;
 	    }
-	    
+
+	    document.addEventListener('DOMContentLoaded', () => {
+	        sortRooms('name');
+
+	        const roomTable = document.querySelector('.room-table tbody');
+	        if (roomTable) {
+	            const rows = roomTable.querySelectorAll('tr');
+	            rows.forEach(row => {
+	                row.addEventListener('click', function() {
+	                    selectRoom(row);
+	                });
+	            });
+	        }
+
+	        const sortButton = document.getElementById('sortButton');
+	        if (sortButton) {
+	            sortButton.addEventListener('click', () => {
+	                const nextSort = currentSort === 'type' ? 'name' : 'type';
+	                sortRooms(nextSort);
+	                sortButton.textContent = nextSort === 'type' ? 'Sắp xếp' : 'Sắp xếp';
+	            });
+	        }
+	    });	    
 	    function addRoom() {
 	        window.location.href = '${pageContext.request.contextPath}/admin/addRoom';
 	    }
@@ -883,93 +952,278 @@
         }
     });
         
-        <!-- Chat Script -->
-            let currentChannel = null;
-            const userID = '${not empty manager ? manager.managerID : ""}';
-
-            function changeChatChannel() {
-                const select = document.getElementById('chatWith');
-                currentChannel = select.value;
-                document.getElementById('chat-box').innerHTML = '';
-                if (currentChannel) {
-                    loadChatHistory(currentChannel.split('|')[0]);
+        let socket;
+        let currentChannel;
+        let userID = "${manager.adminID}"; 
+        let userName = "${manager.fullName}";
+        let userAvatar = '<%=request.getContextPath()%>/images/avt.jpg';
+        function connectWebSocket(roomId) {
+            if (socket) socket.close();
+            const wsUrl = 'ws://' + window.location.host + '<%=request.getContextPath()%>/chat/' + roomId + '/' + userID;
+            console.log('Connecting to WebSocket:', wsUrl);
+            socket = new WebSocket(wsUrl);
+            socket.onopen = () => console.log('Connected to WebSocket for room ' + roomId);
+            socket.onmessage = (event) => {
+                console.log('Received raw data:', event.data);
+                try {
+                    const messageData = JSON.parse(event.data);
+                    console.log('Parsed message:', messageData);
+                    displayMessage(messageData);
+                } catch (e) {
+                    console.error('Error parsing message:', e, 'Raw data:', event.data);
+                    const chatBox = document.getElementById('chat-box');
+                    const p = document.createElement('p');
+                    p.style.color = 'red';
+                    p.textContent = 'Error parsing message';
+                    chatBox.appendChild(p);
                 }
-            }
+            };
+            socket.onclose = () => console.log('Disconnected from WebSocket for room ' + roomId);
+            socket.onerror = (error) => console.error('WebSocket error for room ' + roomId + ':', error);
+        }
 
-            function sendMessage() {
-                const messageInput = document.getElementById('messageInput');
-                const message = messageInput.value.trim();
-                if (message && currentChannel) {
-                    const [receiverID, ip, port] = currentChannel.split('|');
-                    fetch('<%=request.getContextPath()%>/chat/send', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            senderID: userID,
-                            receiverID: receiverID,
-                            ip: ip,
-                            port: port,
-                            type: 'message',
-                            content: message
-                        })
-                    })
-                    .then(() => {
-                        messageInput.value = '';
-                        loadChatHistory(receiverID);
-                    })
-                    .catch(error => console.error('Lỗi khi gửi tin nhắn:', error));
-                }
-            }
 
-            function sendFile() {
-                const fileInput = document.getElementById('fileInput');
-                const file = fileInput.files[0];
-                if (file && currentChannel) {
-                    const [receiverID, ip, port] = currentChannel.split('|');
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const arrayBuffer = e.target.result;
-                        const bytes = new Uint8Array(arrayBuffer);
-                        fetch('<%=request.getContextPath()%>/chat/send', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                                senderID: userID,
-                                receiverID: receiverID,
-                                ip: ip,
-                                port: port,
-                                type: 'file',
-                                fileName: file.name,
-                                fileData: Array.from(bytes)
-                            })
-                        })
-                        .then(() => {
-                            fileInput.value = '';
-                            loadChatHistory(receiverID);
-                        })
-                        .catch(error => console.error('Lỗi khi gửi file:', error));
+        function changeChatChannel() {
+            const select = document.getElementById('chatWith');
+            currentChannel = select.value;
+            console.log('Selected channel:', currentChannel);
+            document.getElementById('chat-box').innerHTML = '';
+            if (currentChannel) {
+                const roomId = currentChannel.startsWith('room_') ? currentChannel.split('_')[1] : currentChannel;
+                console.log('Changing to channel:', roomId);
+                connectWebSocket(roomId);
+                loadChatHistory(currentChannel);
+            }
+        }
+
+        function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value.trim();
+            console.log('Attempting to send message:', message, 'Channel:', currentChannel, 'Socket state:', socket ? socket.readyState : 'No socket');
+            if (message && socket && socket.readyState === WebSocket.OPEN) {
+            	const messageObj = {
+                        senderID: userID,
+                        senderName: userName,
+                        avatarUrl: userAvatar,
+                        timestamp: new Date().toISOString(),
+                        message: message,
+                        type: 'message'
                     };
-                    reader.readAsArrayBuffer(file);
+                if (!currentChannel.startsWith('room_')) {
+                    messageObj.receiverID = currentChannel;
                 }
+                console.log('Sending JSON:', JSON.stringify(messageObj));
+                socket.send(JSON.stringify(messageObj));
+                messageInput.value = '';
+            } else {
+                console.error('Cannot send message: WebSocket not open or invalid input', {
+                    message: message,
+                    socket: socket,
+                    readyState: socket ? socket.readyState : 'No socket',
+                    currentChannel: currentChannel
+                });
             }
+        }
 
-            function loadChatHistory(channel) {
-                fetch('<%=request.getContextPath()%>/chat/history?channel=' + channel)
-                    .then(response => response.json())
-                    .then(messages => {
-                        const chatBox = document.getElementById('chat-box');
-                        chatBox.innerHTML = '';
-                        messages.forEach(msg => {
-                            if (msg.type === 'message') {
-                                chatBox.innerHTML += '<p>' + msg.senderID + ': ' + msg.message + ' (' + new Date(msg.timestamp).toLocaleString('vi-VN') + ')</p>';
-                            } else if (msg.type === 'file') {
-                                chatBox.innerHTML += '<p>' + msg.senderID + ': Đã gửi file <a href="<%=request.getContextPath()%>/chat/download?messageID=' + msg.messageID + '">' + msg.message + '</a> (' + new Date(msg.timestamp).toLocaleString('vi-VN') + ')</p>';
-                            }
-                        });
-                        chatBox.scrollTop = chatBox.scrollHeight;
-                    })
-                    .catch(error => console.error('Lỗi khi tải lịch sử tin nhắn:', error));
+        function sendFile() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            console.log('Selected file:', file ? { name: file.name, size: file.size, type: file.type } : 'No file selected');
+            
+            if (!file) {
+                console.error('No file selected');
+                alert('Vui lòng chọn một file PDF!');
+                return;
             }
+            
+            if (file.type !== 'application/pdf') {
+                console.error('Invalid file type:', file.type);
+                alert('Chỉ hỗ trợ file PDF!');
+                return;
+            }
+            
+            if (file.size > 10 * 1024 * 1024) { // 10MB
+                console.error('File too large:', file.size);
+                alert('File phải nhỏ hơn 10MB!');
+                return;
+            }
+            
+            if (!socket || socket.readyState !== WebSocket.OPEN) {
+                console.error('WebSocket not open:', socket ? socket.readyState : 'No socket');
+                alert('Không thể gửi file: Kết nối WebSocket không hoạt động!');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const base64Data = event.target.result.split(',')[1];
+                console.log('File read as Base64, length:', base64Data.length);
+                const messageObj = {
+                        senderID: userID,
+                        senderName: userName,
+                        avatarUrl: userAvatar,
+                        timestamp: new Date().toISOString(),
+                        fileName: file.name,
+                        fileData: base64Data,
+                        type: 'file'
+                    };
+                if (!currentChannel.startsWith('room_')) {
+                    messageObj.receiverID = currentChannel;
+                }
+                console.log('Sending file JSON, size:', JSON.stringify(messageObj).length);
+                try {
+                    socket.send(JSON.stringify(messageObj));
+                    console.log('File sent successfully');
+                    fileInput.value = '';
+                } catch (e) {
+                    console.error('Error sending file:', e);
+                    alert('Lỗi khi gửi file: ' + e.message);
+                }
+            };
+            reader.onerror = function(event) {
+                console.error('Error reading file:', event.target.error);
+                alert('Lỗi khi đọc file!');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function loadChatHistory(channel) {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML = '';
+            const url = '<%=request.getContextPath()%>/chat/history?channel=' + encodeURIComponent(channel) + '&userId=' + encodeURIComponent(userID);
+            console.log('Fetching history from:', url);
+            fetch(url)
+                .then(response => {
+                    console.log('Fetch response status:', response.status);
+                    if (!response.ok) throw new Error('HTTP error ' + response.status);
+                    return response.json();
+                })
+                .then(messages => {
+                    console.log('Loaded history:', messages);
+                    if (!Array.isArray(messages)) {
+                        const p = document.createElement('p');
+                        p.style.color = 'red';
+                        p.textContent = 'Invalid chat history format';
+                        chatBox.appendChild(p);
+                        return;
+                    }
+                    messages.forEach(msg => displayMessage(msg));
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                })
+                .catch(error => {
+                    console.error('Error loading chat history:', error);
+                    const p = document.createElement('p');
+                    p.style.color = 'red';
+                    p.textContent = 'Failed to load chat history: ' + error.message;
+                    chatBox.appendChild(p);
+                });
+        }
+
+        // display
+        function displayMessage(messageData) {
+		    const chatBox = document.getElementById('chat-box');
+		    const isSender = messageData.senderID === userID;
+		
+		    const messageDiv = document.createElement('div');
+		    messageDiv.className = 'chat-message ' + (isSender ? 'chat-sent' : 'chat-received');
+		
+		    const avatarImg = document.createElement('img');
+		    avatarImg.src = messageData.avatarUrl || '<%=request.getContextPath()%>/images/avt.jpg';
+		    avatarImg.alt = 'Avatar';
+		    avatarImg.className = 'chat-avatar';
+		
+		    const contentDiv = document.createElement('div');
+		    contentDiv.className = 'chat-message-content';
+		
+		    const headerDiv = document.createElement('div');
+		    headerDiv.className = 'chat-message-header';
+		
+		    const headerGroup = document.createElement('div');
+		    headerGroup.className = 'chat-header-group';
+		
+		    const nameSpan = document.createElement('span');
+		    nameSpan.className = 'chat-name';
+		    nameSpan.style.color = getColorForUser(messageData.senderID);
+		    nameSpan.textContent = messageData.senderName || messageData.senderID || '[Unknown]';
+		
+		    const timeSpan = document.createElement('span');
+		    timeSpan.className = 'chat-time';
+		    timeSpan.textContent = messageData.timestamp ? new Date(messageData.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Unknown time';
+		
+		    const textP = document.createElement('p');
+		    textP.className = 'chat-text';
+		    if (messageData.type === 'message') {
+		        textP.textContent = messageData.message || '[Empty message]';
+		    } else if (messageData.type === 'file') {
+		        const fileName = messageData.fileName || '[No file name]';
+		        const fileData = messageData.fileData || '';
+		        if (fileData) {
+		            const a = document.createElement('a');
+		            a.href = 'data:application/pdf;base64,' + fileData;
+		            a.download = fileName;
+		            a.textContent = fileName;
+		            textP.appendChild(a);
+		        } else {
+		            textP.textContent = '[File missing data]';
+		        }
+		    } else {
+		        textP.textContent = '[Unknown type: ' + (messageData.type || 'unknown') + ']';
+		    }
+		
+		    // Thêm .chat-name và .chat-time vào .chat-header-group
+		    headerGroup.appendChild(nameSpan);
+		    headerGroup.appendChild(timeSpan);
+		    headerDiv.appendChild(headerGroup);
+		    contentDiv.appendChild(headerDiv);
+		    contentDiv.appendChild(textP);
+		    messageDiv.appendChild(avatarImg);
+		    messageDiv.appendChild(contentDiv);
+		    chatBox.appendChild(messageDiv);
+		
+		    chatBox.scrollTop = chatBox.scrollHeight;
+		}
+        function filterStudents() {
+            const searchInput = document.getElementById('searchStudent').value.toLowerCase();
+            const select = document.getElementById('chatWith');
+            const options = select.getElementsByTagName('option');
+
+            for (let i = 0; i < options.length; i++) {
+                const option = options[i];
+                if (option.value === '') {
+                    continue; 
+                }
+
+                const name = option.getAttribute('data-name') ? option.getAttribute('data-name').toLowerCase() : '';
+                const roomName = option.getAttribute('data-roomname') ? option.getAttribute('data-roomname').toLowerCase() : '';
+                const value = option.value.toLowerCase();
+                const isRoom = value.startsWith('room_');
+
+                let match = false;
+
+                if (searchInput.includes('phòng')) {
+                	if (isRoom) {
+                        const roomSearch = searchInput.replace('phòng', '').trim();
+                        if (roomSearch === '') {
+                            match = true;
+                        } else if (roomName.includes(roomSearch) || value.includes(roomSearch)) {
+                            match = true;
+                        }
+                    }                } else {
+                    if ((isRoom && (roomName.includes(searchInput) || value.includes(searchInput))) ||
+                        (!isRoom && (name.includes(searchInput) || value.includes(searchInput)))) {
+                        match = true;
+                    }
+                }
+
+                option.style.display = match ? '' : 'none';
+            }
+        }
+        function getColorForUser(senderID) {
+        	const numberPart = parseInt(senderID.replace(/^\D+/, ''), 10);
+        	const hue = numberPart % 360;
+        	return `hsl(${hue}, 70%, 50%)`;
+        }
+       
 	</script>
 </body>
 </html>

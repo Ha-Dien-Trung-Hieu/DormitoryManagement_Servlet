@@ -1,6 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" import="entity.Student" %>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" import="entity.Student" %>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -8,7 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Sinh Viên</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+ 	<script src="https://cdn.tailwindcss.com"></script>
     <style>
+    @tailwind base;
+	@tailwind components;
+	@tailwind utilities;
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	  		background: linear-gradient(to right, #74ebd5, #acb6e5);
@@ -31,7 +37,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         header img.logo {
-        	margin-left: 50px;
+        	margin-left: 6%;
             height: 50px;
             transition: transform 0.3s ease;
         }
@@ -47,7 +53,7 @@
         }
         /* Left */
         .left-nav {
-            width: 15%;
+            width: 17%;
             background: linear-gradient(180deg, #2c3e50, #3498db);
             padding: 20px;
             box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
@@ -57,13 +63,14 @@
             padding: 0;
         }
         .left-nav li {
+            margin-top: 20px;
             margin-bottom: 15px;
         }
         .left-nav a {
-            height: 50px;
+            height: 75px;
             display: flex;
             align-items: center;
-            padding: 12px;
+            padding: 20px;
             text-decoration: none;
             color: #fff;
             font-size: 16px;
@@ -101,7 +108,7 @@
             margin-bottom: 20px;
         }
         .content-card h3 {
-            font-size: 18px;
+            font-size: 25px;
             color: #333;
             margin-bottom: 15px;
         }
@@ -129,25 +136,192 @@
             background: rgba(78, 115, 223, 0.05);
         }
         .content-table tr:first-child {
-            background: rgba(78, 115, 223, 0.1); /* Đậm hơn cho hàng đầu của bảng bạn cùng phòng */
+            background: rgba(78, 115, 223, 0.1); 
         }
-        .chat-box {
-            border: 1px solid #dfe4ea;
-            border-radius: 8px;
-            padding: 10px;
-            background: #f9f9f9;
-            height: 300px;
-            overflow-y: auto;
-            margin-bottom: 10px;
-        }
-        .chat-box p {
-            margin: 5px 0;
-            padding: 8px;
-            background: #ecf0f1;
-            border-radius: 8px;
-            font-size: 14px;
-            color: #34495e;
-        }
+        
+        /* BookRoom */
+		.grid-cols-5 {
+		    display: grid;
+		    grid-template-columns: repeat(5, minmax(0, 1fr));
+		}
+		
+		.gap-4 {
+		    gap: 1rem;
+		}
+		
+		.room-card {
+		    padding: 1rem;
+		    border: 1px solid #e5e7eb;
+		    border-radius: 0.5rem;
+		    text-align: center;
+		    min-height: 150px;
+		    background-color: #ffffff;
+		}
+		
+		.room-card p {
+		    margin: 0.25rem 0;
+		}
+		
+		.room-card.bg-green-100 {
+		    background-color: #dcfce7;
+		}
+		
+		.room-card.bg-gray-200 {
+		    background-color: #e5e7eb;
+		}
+		
+		.room-card.cursor-pointer {
+		    cursor: pointer;
+		}
+		
+		.room-card.cursor-not-allowed {
+		    cursor: not-allowed;
+		}
+		
+		.bg-blue-200 {
+		    background-color: #bfdbfe;
+		}
+		
+		.flex {
+		    display: flex;
+		}
+		
+		.justify-center {
+		    justify-content: center;
+		}
+		
+		.mt-2 {
+		    margin-top: 0.5rem;
+		}
+		
+		.w-6 {
+		    width: 1.5rem;
+		}
+		
+		.h-6 {
+		    height: 1.5rem;
+		}
+		
+		.rounded-full {
+		    border-radius: 9999px;
+		}
+		
+		.bg-gray-500 {
+		    background-color: #6b7280;
+		}
+		
+		.bg-green-500 {
+		    background-color: #22c55e;
+		}
+		
+		.mx-1 {
+		    margin-left: 0.25rem;
+		    margin-right: 0.25rem;
+		}
+		
+		.text-red-500 {
+		    color: #ef4444;
+		}
+		
+		.space-y-2 > * + * {
+		    margin-top: 0.5rem;
+		}
+/* Chat */
+     	.chat-box {
+		    height: 400px;
+		    overflow-y: auto;
+		    padding: 15px;
+		    border: 1px solid #dfe4ea;
+		    border-radius: 8px;
+		    background: #f9f9f9;
+		    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+		.message {
+		    display: flex;
+		    margin-bottom: 15px;
+		    align-items: flex-start;
+		}
+		.message.sent {
+		    flex-direction: row-reverse;
+		}
+		.message.sent .message-content {
+		    align-items: flex-end;
+		}
+		.message.received .avatar {
+		    margin-right: 10px;
+		}
+		.message.sent .avatar {
+		    margin-left: 10px;
+		}
+		.avatar {
+		    width: 40px;
+		    height: 40px;
+		    border-radius: 50%;
+		    object-fit: cover;
+		}
+		.message-content {
+		    display: flex;
+		    flex-direction: column;
+		    min-width: 0;
+		}
+		.message-header {
+		    display: flex;
+		    font-size: 14px;
+		    margin-bottom: 5px;
+		    /* Bỏ justify-content: space-between */
+		}
+		.message.sent .message-header {
+		    justify-content: flex-end; /* Căn phải cho tin nhắn gửi */
+		}
+		.header-group {
+		    display: flex;
+		    align-items: center;
+		    gap: 5px; /* Khoảng cách cố định giữa .name và .time */
+		}
+		.name {
+		    font-weight: 600;
+		    color: #2c3e50;
+		}
+		.message.sent .name {
+		    color: #4a90e2;
+		}
+		.time {
+		    color: #888;
+		    font-size: 12px;
+		    flex-shrink: 0;
+		}
+		.message.sent .time {
+		    margin-right: 0;
+		    margin-left: 10px;
+		}
+		.message.received .time {
+		    margin-right: 0;
+		    margin-left: 10px;
+		}
+		.text {
+		    padding: 8px 12px;
+		    border-radius: 12px;
+		    word-wrap: break-word;
+		    font-size: 14px;
+		    line-height: 1.4;
+		    min-width: 0;
+		}
+		.message.received .text {
+		    background: #e9ecef;
+		    color: #34495e;
+		}
+		.message.sent .text {
+		    background: #4a90e2;
+		    color: #fff;
+		}
+		.text a {
+		    color: inherit;
+		    text-decoration: underline;
+		}
+		.text a:hover {
+		    text-decoration: none;
+		}
+
         .input-group {
             display: flex;
             gap: 10px;
@@ -228,8 +402,25 @@
             color: #e74c3c;
         }
         /* Right */
+        .avatar-upload {
+		    margin: 10px 0;
+		    text-align: center;
+		}
+		.btn-upload {
+		    background-color: #4CAF50;
+		    color: white;
+		    padding: 8px 16px;
+		    border: none;
+		    border-radius: 4px;
+		    cursor: pointer;
+		    margin: 0 5px;
+		}
+		.btn-upload:disabled {
+		    background-color: #cccccc;
+		    cursor: not-allowed;
+		}
         .right-panel {
-            width: 280px;
+            width: 350px;
             background: #fff;
             padding: 20px;
             box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
@@ -249,7 +440,7 @@
         .profile-card:hover {
             transform: translateY(-5px);
         }
-        .avatar {
+        .avatar-right {
             width: 120px;
             height: 120px;
             border-radius: 50%;
@@ -258,7 +449,7 @@
             object-fit: cover;
             transition: transform 0.3s ease;
         }
-        .avatar:hover {
+        .avatar-right:hover {
             transform: scale(1.05);
         }
         .profile-table {
@@ -328,6 +519,7 @@
             margin-bottom: 10px;
         }
         .btn-print {
+        	align-items: center;
             background: linear-gradient(90deg, #3498db, #2980b9);
             color: #fff;
             border: none;
@@ -389,17 +581,30 @@
             <c:if test="${param.message == 'update_success'}">
                 <div class="alert alert-success">Cập nhật thông tin thành công!</div>
             </c:if>
-			<!-- Thông báo thanh toán -->
-            <c:if test="${not empty student.contract and student.contract.status == 'Active'}">
-                <c:choose>
-                    <c:when test="${not empty unpaidInvoices and unpaidInvoices.size() > 0}">
-                        <div class="alert alert-danger">Bạn còn 3 ngày để thanh toán, hãy thanh toán trong thời gian quy định.</div>
-                    </c:when>
-                    <c:when test="${empty unpaidInvoices}">
-                        <div class="alert alert-success">Bạn đã thanh toán thành công.</div>
-                    </c:when>
-                </c:choose>
-            </c:if>
+			<!-- Dùng time để hiển thị cho Student biết khi nào cần thanh toán -->
+			<c:if test="${not empty lockRemainingTime and lockRemainingTime > 0}">
+			    <div class="alert alert-warning">
+			        Phòng đã bị khóa. Thời gian để thanh toán: <span id="lockTimer"></span>
+			        <input type="hidden" id="lockRemainingTime" value="${lockRemainingTime * 24 * 60 * 60 * 1000}">
+			    </div>
+			    <script>
+			        function updateLockTimer() {
+			            const remainingTime = parseInt(document.getElementById('lockRemainingTime').value);
+			            if (remainingTime > 0) {
+			                const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24)); // 24h
+			                const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); //1h
+			                const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60)); // 1p
+			                const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000); // 1s
+			                document.getElementById('lockTimer').innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+			                setTimeout(updateLockTimer, 1000);
+			                document.getElementById('lockRemainingTime').value = remainingTime - 1000;
+			            } else {
+			                document.getElementById('lockTimer').innerText = "Đã mở khóa";
+			            }
+			        }
+			        updateLockTimer();
+			    </script>
+			</c:if>
             <c:choose>
                 <c:when test="${param.section == 'home' || empty param.section}">
                     <div class="content-card">
@@ -408,8 +613,8 @@
                             <c:when test="${not empty student.contract and student.contract.status == 'Active'}">
                                 <table class="content-table">
                                     <tr>
-                                        <th>ID Phòng:</th>
-                                        <td>${student.contract.room.roomID}</td>
+                                        <th>Phòng:</th>
+                                        <td>${student.contract.room.roomName}</td>
                                     </tr>
                                     <tr>
                                         <th>Loại Phòng:</th>
@@ -451,35 +656,56 @@
                         </div>
                     </c:if>
                 </c:when>
-                <c:when test="${param.section == 'bookRoom'}">
-                    <div class="content-card">
-                        <h3>Đặt phòng</h3>
-                        <c:choose>
-                            <c:when test="${not empty student.contract and student.contract.status == 'Active'}">
-                                <p class="error-message">Bạn đã có phòng.</p>
-                            </c:when>
-                            <c:otherwise>
-                                <p>Số phòng trống: ${availableRooms.size()}</p>
-                                <form action="<%=request.getContextPath()%>/student/bookRoom" method="post">
-                                    <div class="form-group">
-                                        <label for="RoomID">Chọn Phòng:</label>
-                                        <select id="RoomID" name="RoomID">
-                                            <c:if test="${not empty availableRooms}">
-												<c:forEach var="room" items="${availableRooms}">
-												    <option value="${room[0]}">${room[0]}. ${room[1]} : <fmt:formatNumber value="${room[4]}" type="number"/> VNĐ (${room[5]}) (${room[3]}/${room[2]})</option>
-												</c:forEach>                                           
- 													</c:if>	
- 												<c:if test="${empty availableRooms}">
-                                                <option value="">Không có phòng trống</option>
-                                            </c:if>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn-submit" <c:if test="${empty availableRooms}">disabled</c:if>>Đặt Phòng</button>
-                                </form>
-                            </c:otherwise>
-                        </c:choose>
-                    </div>
-                </c:when>
+				<c:when test="${param.section == 'bookRoom'}">
+				    <div class="content-card p-6 bg-white rounded-lg shadow-md">
+				        <h3 class="text-2xl font-bold mb-4">Đặt phòng</h3>
+				        <c:choose>
+				            <c:when test="${not empty student.contract and student.contract.status == 'Active'}">
+				                <p class="text-red-500 font-medium">Bạn đã có phòng.</p>
+				            </c:when>
+				            <c:otherwise>
+				                <!-- Tabs cho tòa nhà -->
+				                <div class="tabs mb-4">
+				                    <div class="flex flex-wrap gap-2">
+				                        <c:forEach var="building" items="${buildings}">
+				                            <button class="tab-link px-4 py-2 rounded font-semibold ${building.name == 'Tòa A' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}" data-building="${building.name}">
+				                                ${building.name}
+				                            </button>
+				                        </c:forEach>
+				                    </div>
+				                </div>
+				
+				                <div class="flex gap-4">
+				                    <!-- Tabs cho tầng -->
+				                    <div class="w-1/4 bg-gray-50 p-4 rounded-lg shadow-sm">
+				                        <h2 class="text-lg font-semibold mb-3">Tầng</h2>
+				                        <ul class="space-y-2">
+				                            <c:forEach var="floor" begin="1" end="5">
+				                                <li>
+				                                    <button class="floor-link w-full text-left py-2 px-4 rounded ${floor == 1 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}" data-floor="${floor}">
+				                                        Tầng ${floor}
+				                                    </button>
+				                                </li>
+				                            </c:forEach>
+				                        </ul>
+				                    </div>
+				
+				                    <!-- Lưới hiển thị phòng -->
+				                    <div class="w-3/4 bg-gray-50 p-6 rounded-lg shadow-sm">
+				                        <h2 class="text-lg font-semibold mb-4 text-gray-800" id="gridTitle">Phòng - Tòa A, Tầng 1</h2>
+				                        <div id="roomGrid" class="grid grid-cols-5 gap-4"></div>
+				                        <form id="bookRoomForm" action="<%=request.getContextPath()%>/student/bookRoom" method="POST" class="mt-6">
+				                            <input type="hidden" id="selectedRoomName" name="roomName" value="">
+				                            <button type="submit" id="submitButton" class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+				                                Đặt phòng
+				                            </button>
+				                        </form>
+				                    </div>
+				                </div>
+				            </c:otherwise>
+				        </c:choose>
+				    </div>
+				</c:when>
                 <c:when test="${param.section == 'invoices'}">
                     <div class="content-card">
                         <h3>Hóa đơn <c:if test="${not empty unpaidInvoices and unpaidInvoices.size() > 0}">(Chưa thanh toán)</c:if><c:if test="${empty unpaidInvoices}">(Đã thanh toán)</c:if></h3>
@@ -501,7 +727,7 @@
                             </c:otherwise>
                         </c:choose>
                     </div>
-                </c:when>
+				 </c:when>
                 <c:when test="${param.section == 'chat'}">
 				    <div class="content-card">
 				        <h3>Chat</h3>
@@ -509,39 +735,45 @@
 				            <label for="chatWith">Chat với:</label>
 				            <select id="chatWith" onchange="changeChatChannel()">
 				                <option value="">Chọn người hoặc phòng</option>
-				                <!-- Danh sách sinh viên -->
-				                <c:forEach var="otherStudent" items="${allStudents}">
-				                    <c:if test="${otherStudent.idSinhVien != student.idSinhVien}">
-				                        <option value="${otherStudent.idSinhVien}|${not empty otherStudent.ipAddress ? otherStudent.ipAddress : '0.0.0.0'}|${not empty otherStudent.port ? otherStudent.port : '0'}">
-				                            ${otherStudent.fullName}
-				                        </option>
-				                    </c:if>
-				                </c:forEach>
-				                <!-- Danh sách quản lý -->
-				                <c:forEach var="manager" items="${allManagers}">
-				                    <option value="${manager.adminID}|${not empty manager.ipAddress ? manager.ipAddress : '0.0.0.0'}|${not empty manager.port ? manager.port : '0'}">
-				                        ${manager.fullName} (Quản lý)
-				                    </option>
-				                </c:forEach>
-				                <!-- Chat nhóm với phòng (nếu có) -->
-				                <c:if test="${not empty student.contract and student.contract.status == 'Active' and not empty room}">
-				                    <option value="room_${student.contract.room.roomID}|${not empty room.ipAddress ? room.ipAddress : '0.0.0.0'}|${not empty room.port ? room.port : '0'}">
-				                        Phòng ${student.contract.room.roomID}
+				                
+				               	<!-- Danh sách bạn cùng phòng (nếu có) -->
+				                <c:if test="${not empty student.contract and student.contract.status == 'Active' and (student.contract.room.roomType == 'Đôi' or student.contract.room.roomType == 'Tập thể') and not empty roommates}">
+				                    <c:forEach var="roommate" items="${roommates}">
+				                        <c:if test="${roommate.idSinhVien != student.idSinhVien}">
+				                            <option value="${fn:escapeXml(roommate.idSinhVien)}">
+				                                ${fn:escapeXml(roommate.fullName)}
+				                            </option>
+				                        </c:if>
+				                    </c:forEach>
+				                </c:if>
+				                
+				                <!-- Phòng -->
+				                <c:if test="${not empty student.contract and student.contract.status == 'Active' and not empty student.contract.room}">
+				                    <option value="room_${fn:escapeXml(student.contract.room.roomID)}">
+				                        Phòng ${fn:escapeXml(student.contract.room.roomName)}
 				                    </option>
 				                </c:if>
-				            </select>
+				                
+				                <!-- Danh sách quản lý -->
+				                <c:forEach var="manager" items="${allManagers}">
+									<option value="${fn:escapeXml(manager.adminID)}">
+				                        ${fn:escapeXml(manager.fullName)} (Quản lý)
+				                    </option>
+				                </c:forEach>
+				                
+    				        </select>
 				        </div>
 				        <div id="chat-box" class="chat-box">
 				            <!-- Tin nhắn và file sẽ hiển thị ở đây -->
 				        </div>
 				        <div class="input-group">
-				            <input type="text" id="messageInput" placeholder="Nhập tin nhắn...">
+				            <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." onkeypress="if(event.key === 'Enter') sendMessage()">
 				            <input type="file" id="fileInput" accept=".pdf,.doc,.docx">
 				            <button onclick="sendMessage()">Gửi Tin Nhắn</button>
 				            <button onclick="sendFile()">Gửi File</button>
 				        </div>
 				    </div>
-</c:when>
+				</c:when>
                 <c:otherwise>
                     <div class="content-card">
                         <h3>Phần không tồn tại</h3>
@@ -556,7 +788,12 @@
             <c:choose>
                 <c:when test="${not empty student}">
                     <div class="profile-card">
-                        <img src="<%=request.getContextPath()%>/images/avt.jpg" alt="Avatar" class="avatar">
+						<img id="avatar-preview" src="<%=request.getContextPath()%>/images/avt.jpg" alt="Avatar" class="avatar-right">
+                        <div class="avatar-upload">
+                            <input type="file" id="avatar-input" accept="image/png,image/jpeg" style="display: none;">
+                            <button onclick="document.getElementById('avatar-input').click();" class="btn-upload">Chọn ảnh</button>
+                            <button onclick="uploadAvatar();" class="btn-upload" id="upload-btn" disabled>Lưu ảnh</button>
+                        </div>
                         <table class="profile-table">
                             <tr>
                                 <th>ID:</th>
@@ -620,94 +857,559 @@
         </div>
     </div>
 
-    <!-- Chat Script -->
+    
     <script>
-    let currentChannel = null;
-    const userID = '${not empty student ? student.idSinhVien : ""}';
-
-    function changeChatChannel() {
-        const select = document.getElementById('chatWith');
-        currentChannel = select.value;
-        document.getElementById('chat-box').innerHTML = '';
-        if (currentChannel) {
-            loadChatHistory(currentChannel.split('|')[0]);
+    <!-- Đặt phòng -->
+    document.addEventListener('DOMContentLoaded', () => {
+        // Hàm cập nhật tiêu đề lưới
+        function updateRoomTitle(building, floor) {
+            const titleElement = document.getElementById('gridTitle');
+            if (titleElement) {
+                titleElement.textContent = `Phòng - ${building}, Tầng ${floor}`;
+            } else {
+                console.error('Không tìm thấy #gridTitle');
+            }
         }
-    }
 
-    function sendMessage() {
-        const messageInput = document.getElementById('messageInput');
-        const message = messageInput.value.trim();
-        if (message && currentChannel) {
-            const [receiverID, ip, port] = currentChannel.split('|');
-            fetch('<%=request.getContextPath()%>/chat/send', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    senderID: userID,
-                    receiverID: receiverID,
-                    ip: ip,
-                    port: port,
-                    type: 'message',
-                    content: message
-                })
-            })
-            .then(() => {
-                messageInput.value = '';
-                loadChatHistory(receiverID);
-            })
-            .catch(error => console.error('Lỗi khi gửi tin nhắn:', error));
+        // Hàm lấy mã tòa từ tên tòa
+        function getBuildingCode(buildingName) {
+            return buildingName.replace('Tòa ', '');
         }
-    }
 
-    function sendFile() {
-        const fileInput = document.getElementById('fileInput');
-        const file = fileInput.files[0];
-        if (file && currentChannel) {
-            const [receiverID, ip, port] = currentChannel.split('|');
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const arrayBuffer = e.target.result;
-                const bytes = new Uint8Array(arrayBuffer);
-                fetch('<%=request.getContextPath()%>/chat/send', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        senderID: userID,
-                        receiverID: receiverID,
-                        ip: ip,
-                        port: port,
-                        type: 'file',
-                        fileName: file.name,
-                        fileData: Array.from(bytes)
-                    })
-                })
-                .then(() => {
-                    fileInput.value = '';
-                    loadChatHistory(receiverID);
-                })
-                .catch(error => console.error('Lỗi khi gửi file:', error));
-            };
-            reader.readAsArrayBuffer(file);
-        }
-    }
+        // Hàm tải và hiển thị phòng
+        function loadRooms() {
+            const building = document.querySelector('.tab-link.bg-blue-600')?.dataset.building || 'Tòa A';
+            const floor = document.querySelector('.floor-link.bg-blue-600')?.dataset.floor || '1';
+            const buildingCode = getBuildingCode(building);
+            const floorPrefix = buildingCode + floor;
+            const roomGrid = document.getElementById('roomGrid');
 
-    function loadChatHistory(channel) {
-        fetch('<%=request.getContextPath()%>/chat/history?channel=' + channel)
-            .then(response => response.json())
-            .then(messages => {
-                const chatBox = document.getElementById('chat-box');
-                chatBox.innerHTML = '';
-                messages.forEach(msg => {
-                    if (msg.type === 'message') {
-                        chatBox.innerHTML += '<p>' + msg.senderID + ': ' + msg.message + ' (' + new Date(msg.timestamp).toLocaleString('vi-VN') + ')</p>';
-                    } else if (msg.type === 'file') {
-                        chatBox.innerHTML += '<p>' + msg.senderID + ': Đã gửi file <a href="<%=request.getContextPath()%>/chat/download?messageID=' + msg.messageID + '">' + msg.message + '</a> (' + new Date(msg.timestamp).toLocaleString('vi-VN') + ')</p>';
+            if (!roomGrid) {
+                console.error('Không tìm thấy #roomGrid');
+                return;
+            }
+
+            roomGrid.innerHTML = ''; // Xóa lưới cũ
+            updateRoomTitle(building, floor);
+
+            // Tạo URL
+	        const baseUrl = '<%=request.getContextPath()%>' + '/student/getRooms';
+	        const url = baseUrl + '?building=' + encodeURIComponent(building) + '&floor=' + encodeURIComponent(floorPrefix);
+            console.log('Fetch URL:', url);
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Lỗi HTTP: ${response.status}`);
                     }
+                    return response.json();
+                })
+                .then(rooms => {
+                    console.log('Danh sách phòng:', rooms);
+
+                    if (!Array.isArray(rooms) || rooms.length === 0) {
+                        roomGrid.innerHTML = '<p class="text-red-500">Không tìm thấy phòng nào</p>';
+                        console.warn('Không có phòng hoặc dữ liệu không phải mảng:', rooms);
+                        return;
+                    }
+
+                    // Tạo lưới 20 ô (4x5)
+                    const grid = Array(20).fill(null);
+
+                    // Ánh xạ phòng vào lưới dựa trên [Số phòng]
+                    rooms.forEach(room => {
+                        if (room.roomName && room.roomName.startsWith(floorPrefix)) {
+                            const roomNumber = parseInt(room.roomName.slice(-2)); // Lấy 2 số cuối (01-20)
+                            if (roomNumber >= 1 && roomNumber <= 20) {
+                                grid[roomNumber - 1] = room; // Gán vào vị trí (0-19)
+                            }
+                        }
+                    });
+
+                    // Hiển thị từng ô trong lưới
+                    grid.forEach((room, index) => {
+                        const roomCard = document.createElement('div');
+                        roomCard.className = 'room-card p-4 border rounded text-center';
+
+                        if (room && room.roomName) {
+                            const isFull = (room.currentOccupants || 0) >= (room.capacity || 0);
+                            roomCard.className += ` ${isFull ? 'bg-gray-200 cursor-not-allowed' : 'bg-green-100 cursor-pointer'}`;
+                            roomCard.dataset.room = room.roomName;
+
+                            // Kiểm tra và xử lý dữ liệu phòng
+                            const displayRoomName = room.roomName || 'Không xác định';
+                            const displayOccupants = room.currentOccupants != null ? room.currentOccupants : 0;
+                            const displayCapacity = room.capacity != null ? room.capacity : 0;
+                            const displayRoomType = room.roomType || 'Không xác định';
+                            const displayPrice = (room.price != null && !isNaN(room.price)) ? Number(room.price).toLocaleString('vi-VN') : '0';
+
+                            console.log('Rendering room:', {
+                                roomName: displayRoomName,
+                                occupants: displayOccupants,
+                                capacity: displayCapacity,
+                                roomType: displayRoomType,
+                                price: displayPrice
+                            });
+
+                            // Tạo phần tử HTML riêng biệt
+                            const nameP = document.createElement('p');
+                            const strong = document.createElement('strong');
+                            strong.textContent = displayRoomName;
+                            nameP.appendChild(strong);
+                            const occupancySpan = document.createElement('span');
+                            occupancySpan.textContent = ` (${displayOccupants}/${displayCapacity})`;
+                            nameP.appendChild(occupancySpan);
+
+                            const typeP = document.createElement('p');
+                            typeP.textContent = `Loại: ${displayRoomType}`;
+
+                            const priceP = document.createElement('p');
+                            priceP.textContent = `Giá: ${displayPrice} VNĐ`;
+
+                            roomCard.appendChild(nameP);
+                            roomCard.appendChild(typeP);
+                            roomCard.appendChild(priceP);
+
+                            // Thêm vòng tròn trạng thái
+                            const slotsDiv = document.createElement('div');
+                            slotsDiv.className = 'flex justify-center mt-2';
+                            for (let i = 0; i < displayCapacity; i++) {
+                                const slot = document.createElement('div');
+                                slot.className = `w-6 h-6 rounded-full ${i < displayOccupants ? 'bg-gray-500' : 'bg-green-500'} mx-1`;
+                                slotsDiv.appendChild(slot);
+                            }
+                            roomCard.appendChild(slotsDiv);
+
+                            // Sự kiện chọn phòng nếu còn trống
+                            if (!isFull) {
+                                roomCard.addEventListener('click', () => {
+                                    document.querySelectorAll('.room-card').forEach(r => r.classList.remove('bg-blue-200'));
+                                    roomCard.classList.add('bg-blue-200');
+                                    const selectedRoomInput = document.getElementById('selectedRoomName');
+                                    if (selectedRoomInput) {
+                                        selectedRoomInput.value = room.roomName;
+                                    }
+                                    const submitButton = document.getElementById('submitButton');
+                                    if (submitButton) {
+                                        submitButton.disabled = false;
+                                    }
+                                    console.log('Phòng được chọn:', room.roomName);
+                                });
+                            }
+                        } else {
+                            // Ô trống nếu không có phòng
+                            roomCard.className += ' bg-gray-200 cursor-not-allowed';
+                            roomCard.innerHTML = '<p><strong>Phòng trống</strong></p><p>-</p><p>-</p>';
+                        }
+                        roomGrid.appendChild(roomCard);
+                    });
+
+                    console.log('Room grid HTML:', roomGrid.innerHTML);
+                })
+                .catch(error => {
+                    console.error('Lỗi khi tải phòng:', error);
+                    roomGrid.innerHTML = '<p class="text-red-500">Lỗi khi tải phòng: ' + error.message + '</p>';
                 });
-                chatBox.scrollTop = chatBox.scrollHeight;
-            })
-            .catch(error => console.error('Lỗi khi tải lịch sử tin nhắn:', error));
+        }
+
+        // Gắn sự kiện cho tabs tòa nhà
+        const tabs = document.querySelectorAll('.tab-link');
+        if (tabs.length === 0) {
+            console.error('Không tìm thấy tab-link');
+        }
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('bg-blue-600', 'text-white');
+                    t.classList.add('bg-gray-200', 'text-gray-700');
+                });
+                tab.classList.remove('bg-gray-200', 'text-gray-700');
+                tab.classList.add('bg-blue-600', 'text-white');
+                loadRooms();
+                console.log('Tòa được chọn:', tab.dataset.building);
+            });
+        });
+
+        // Gắn sự kiện cho tabs tầng
+        const floors = document.querySelectorAll('.floor-link');
+        if (floors.length === 0) {
+            console.error('Không tìm thấy floor-link');
+        }
+        floors.forEach(floor => {
+            floor.addEventListener('click', () => {
+                floors.forEach(f => {
+                    f.classList.remove('bg-blue-600', 'text-white');
+                    f.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                floor.classList.remove('bg-gray-100', 'text-gray-700');
+                floor.classList.add('bg-blue-600', 'text-white');
+                loadRooms();
+                console.log('Tầng được chọn:', floor.dataset.floor);
+            });
+        });
+
+        // Tải phòng mặc định khi trang được tải
+        loadRooms();
+    });
+    
+    <!-- Chat Script -->    
+let socket;
+let currentChannel;
+let userID = "${student.idSinhVien}";
+let userName = "${student.fullName}";
+
+let userAvatar = "";
+fetch('<%=request.getContextPath()%>/student/getAvatar?idSinhVien=${student.idSinhVien}')
+    .then(response => response.json())
+    .then(data => {
+        if (data.avatar) {
+            userAvatar = 'data:image/jpeg;base64,' + data.avatar;
+        } else {
+            userAvatar = '<%=request.getContextPath()%>/images/avt.jpg';
+        }
+    })
+    .catch(error => {
+        console.error('Error loading user avatar:', error);
+        userAvatar = '<%=request.getContextPath()%>/images/avt.jpg';
+    });
+    
+function connectWebSocket(roomId) {
+    if (socket) socket.close();
+    const wsUrl = 'ws://' + window.location.host + '<%=request.getContextPath()%>/chat/' + roomId + '/' + userID;
+    console.log('Connecting to WebSocket:', wsUrl);
+    socket = new WebSocket(wsUrl);
+    socket.onopen = () => console.log('Connected to WebSocket for room ' + roomId);
+    socket.onmessage = (event) => {
+        console.log('Received raw data:', event.data);
+        try {
+            const messageData = JSON.parse(event.data);
+            console.log('Parsed message:', messageData);
+            displayMessage(messageData);
+        } catch (e) {
+            console.error('Error parsing message:', e, 'Raw data:', event.data);
+            const chatBox = document.getElementById('chat-box');
+            const p = document.createElement('p');
+            p.style.color = 'red';
+            p.textContent = 'Error parsing message';
+            chatBox.appendChild(p);
+        }
+    };
+    socket.onclose = () => console.log('Disconnected from WebSocket for room ' + roomId);
+    socket.onerror = (error) => console.error('WebSocket error for room ' + roomId + ':', error);
+}
+
+
+function changeChatChannel() {
+    const select = document.getElementById('chatWith');
+    currentChannel = select.value;
+    console.log('Selected channel:', currentChannel);
+    document.getElementById('chat-box').innerHTML = '';
+    if (currentChannel) {
+        const roomId = currentChannel.startsWith('room_') ? currentChannel.split('_')[1] : currentChannel;
+        console.log('Changing to channel:', roomId);
+        connectWebSocket(roomId);
+        loadChatHistory(currentChannel);
     }
-    </script>
+}
+
+function sendMessage() {
+    const messageInput = document.getElementById('messageInput');
+    const message = messageInput.value.trim();
+    console.log('Attempting to send message:', message, 'Channel:', currentChannel, 'Socket state:', socket ? socket.readyState : 'No socket');
+    if (message && socket && socket.readyState === WebSocket.OPEN) {
+    	const messageObj = {
+                senderID: userID,
+                senderName: userName,
+                avatarUrl: userAvatar,
+                timestamp: new Date().toISOString(),
+                message: message,
+                type: 'message'
+            };
+        if (!currentChannel.startsWith('room_')) {
+            messageObj.receiverID = currentChannel;
+        }
+        console.log('Sending JSON:', JSON.stringify(messageObj));
+        socket.send(JSON.stringify(messageObj));
+        messageInput.value = '';
+    } else {
+        console.error('Cannot send message: WebSocket not open or invalid input', {
+            message: message,
+            socket: socket,
+            readyState: socket ? socket.readyState : 'No socket',
+            currentChannel: currentChannel
+        });
+    }
+}
+
+function sendFile() {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+    console.log('Selected file:', file ? { name: file.name, size: file.size, type: file.type } : 'No file selected');
+    
+    if (!file) {
+        console.error('No file selected');
+        alert('Vui lòng chọn một file PDF!');
+        return;
+    }
+    
+    if (file.type !== 'application/pdf') {
+        console.error('Invalid file type:', file.type);
+        alert('Chỉ hỗ trợ file PDF!');
+        return;
+    }
+    
+    if (file.size > 10 * 1024 * 1024) { // 10MB
+        console.error('File too large:', file.size);
+        alert('File phải nhỏ hơn 10MB!');
+        return;
+    }
+    
+    if (!socket || socket.readyState !== WebSocket.OPEN) {
+        console.error('WebSocket not open:', socket ? socket.readyState : 'No socket');
+        alert('Không thể gửi file: Kết nối WebSocket không hoạt động!');
+        return;
+    }
+    
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const base64Data = event.target.result.split(',')[1];
+        console.log('File read as Base64, length:', base64Data.length);
+        const messageObj = {
+                senderID: userID,
+                senderName: userName,
+                avatarUrl: userAvatar,
+                timestamp: new Date().toISOString(),
+                fileName: file.name,
+                fileData: base64Data,
+                type: 'file'
+            };
+        if (!currentChannel.startsWith('room_')) {
+            messageObj.receiverID = currentChannel;
+        }
+        console.log('Sending file JSON, size:', JSON.stringify(messageObj).length);
+        try {
+            socket.send(JSON.stringify(messageObj));
+            console.log('File sent successfully');
+            fileInput.value = '';
+        } catch (e) {
+            console.error('Error sending file:', e);
+            alert('Lỗi khi gửi file: ' + e.message);
+        }
+    };
+    reader.onerror = function(event) {
+        console.error('Error reading file:', event.target.error);
+        alert('Lỗi khi đọc file!');
+    };
+    reader.readAsDataURL(file);
+}
+
+function loadChatHistory(channel) {
+    const chatBox = document.getElementById('chat-box');
+    chatBox.innerHTML = '';
+    const url = '<%=request.getContextPath()%>/chat/history?channel=' + encodeURIComponent(channel) + '&userId=' + encodeURIComponent(userID);
+    console.log('Fetching history from:', url);
+    fetch(url)
+        .then(response => {
+            console.log('Fetch response status:', response.status);
+            if (!response.ok) throw new Error('HTTP error ' + response.status);
+            return response.json();
+        })
+        .then(messages => {
+            console.log('Loaded history:', messages);
+            if (!Array.isArray(messages)) {
+                const p = document.createElement('p');
+                p.style.color = 'red';
+                p.textContent = 'Invalid chat history format';
+                chatBox.appendChild(p);
+                return;
+            }
+            messages.forEach(msg => displayMessage(msg));
+            chatBox.scrollTop = chatBox.scrollHeight;
+        })
+        .catch(error => {
+            console.error('Error loading chat history:', error);
+            const p = document.createElement('p');
+            p.style.color = 'red';
+            p.textContent = 'Failed to load chat history: ' + error.message;
+            chatBox.appendChild(p);
+        });
+}
+
+// display
+function displayMessage(messageData) {
+    const chatBox = document.getElementById('chat-box');
+    const isSender = messageData.senderID === userID;
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message ' + (isSender ? 'sent' : 'received');
+
+    const avatarImg = document.createElement('img');
+    avatarImg.src = messageData.avatarUrl || '<%=request.getContextPath()%>/images/avt.jpg';
+    avatarImg.alt = 'Avatar';
+    avatarImg.className = 'avatar';
+
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+
+    const headerDiv = document.createElement('div');
+    headerDiv.className = 'message-header';
+    
+    const headerGroup = document.createElement('div');
+    headerGroup.className = 'header-group';
+    
+    const nameSpan = document.createElement('span');
+    nameSpan.className = 'name';
+    nameSpan.style.color = getColorForUser(messageData.senderID);
+    nameSpan.textContent = messageData.senderName || messageData.senderID || '[Unknown]';
+
+    const timeSpan = document.createElement('span');
+    timeSpan.className = 'time';
+    timeSpan.textContent = messageData.timestamp ? new Date(messageData.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Unknown time';
+
+    const textP = document.createElement('p');
+    textP.className = 'text';
+    if (messageData.type === 'message') {
+        textP.textContent = messageData.message || '[Empty message]';
+    } else if (messageData.type === 'file') {
+        const fileName = messageData.fileName || '[No file name]';
+        const fileData = messageData.fileData || '';
+        if (fileData) {
+            const a = document.createElement('a');
+            a.href = 'data:application/pdf;base64,' + fileData;
+            a.download = fileName;
+            a.textContent = fileName;
+            textP.appendChild(a);
+        } else {
+            textP.textContent = '[File missing data]';
+        }
+    } else {
+        textP.textContent = '[Unknown type: ' + (messageData.type || 'unknown') + ']';
+    }
+
+    headerDiv.appendChild(nameSpan);
+    headerDiv.appendChild(timeSpan);
+    headerDiv.appendChild(headerGroup);
+    contentDiv.appendChild(headerDiv);
+    contentDiv.appendChild(textP);
+    messageDiv.appendChild(avatarImg);
+    messageDiv.appendChild(contentDiv);
+    chatBox.appendChild(messageDiv);
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+function getColorForUser(senderID) {
+	const numberPart = parseInt(senderID.replace(/^\D+/, ''), 10);
+	const hue = numberPart % 360;
+	return `hsl(${hue}, 70%, 50%)`;
+}
+// Avatar
+	// Load avatar từ API khi trang load
+        window.onload = function() {
+            fetch('<%=request.getContextPath()%>/student/getAvatar?idSinhVien=${student.idSinhVien}')
+                .then(response => {
+                    if (!response.ok) throw new Error('HTTP error ' + response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.avatar) {
+                        document.getElementById('avatar-preview').src = 'data:image/jpeg;base64,' + data.avatar;
+                        console.log('Avatar loaded, Base64 length:', data.avatar.length);
+                    } else {
+                        console.log('No avatar found for student: ${student.idSinhVien}');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading avatar:', error);
+                });
+        };
+
+        const avatarInput = document.getElementById('avatar-input');
+        const avatarPreview = document.getElementById('avatar-preview');
+        const uploadBtn = document.getElementById('upload-btn');
+
+        avatarInput.addEventListener('change', function() {
+            const file = this.files[0];
+            console.log('Selected avatar:', file ? { name: file.name, size: file.size, type: file.type } : 'No file');
+            if (!file) {
+                alert('Vui lòng chọn một file ảnh!');
+                uploadBtn.disabled = true;
+                return;
+            }
+
+            if (!['image/png', 'image/jpeg'].includes(file.type)) {
+                alert('Chỉ hỗ trợ định dạng PNG hoặc JPG!');
+                uploadBtn.disabled = true;
+                return;
+            }
+
+            if (file.size > 16 * 1024 * 1024) {
+                alert('Dung lượng file tối đa là 16MB!');
+                uploadBtn.disabled = true;
+                return;
+            }
+
+            const img = new Image();
+            img.onload = function() {
+                if (img.width > 4000 || img.height > 4000) {
+                    alert('Kích thước ảnh tối đa là 4000x4000 pixel!');
+                    uploadBtn.disabled = true;
+                    return;
+                }
+                avatarPreview.src = URL.createObjectURL(file);
+                uploadBtn.disabled = false;
+                console.log('Avatar preview updated, size:', img.width + 'x' + img.height);
+            };
+            img.onerror = function() {
+                alert('Lỗi khi đọc file ảnh!');
+                uploadBtn.disabled = true;
+            };
+            img.src = URL.createObjectURL(file);
+        });
+
+        function uploadAvatar() {
+            const file = avatarInput.files[0];
+            if (!file) {
+                alert('Vui lòng chọn một file ảnh trước!');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('avatar', file);
+            formData.append('idSinhVien', '${student.idSinhVien}');
+
+            console.log('Uploading avatar for student:', '${student.idSinhVien}', 'File size:', file.size, 'bytes');
+            fetch('<%=request.getContextPath()%>/student/updateAvatar', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                console.log('Upload response status:', response.status);
+                if (!response.ok) throw new Error('HTTP error ' + response.status);
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    alert('Cập nhật ảnh đại diện thành công!');
+                    uploadBtn.disabled = true;
+                    avatarInput.value = '';
+                    // Tải lại avatar từ API
+                    fetch('<%=request.getContextPath()%>/student/getAvatar?idSinhVien=${student.idSinhVien}')
+                        .then(resp => resp.json())
+                        .then(avatarData => {
+                            if (avatarData.avatar) {
+                                avatarPreview.src = 'data:image/jpeg;base64,' + avatarData.avatar;
+                                console.log('Avatar updated, Base64 length:', avatarData.avatar.length);
+                            }
+                        });
+                } else {
+                    alert('Lỗi: ' + (data.message || 'Không thể cập nhật ảnh!'));
+                }
+            })
+            .catch(error => {
+                console.error('Error uploading avatar:', error);
+                alert('Lỗi khi tải ảnh: ' + error.message);
+            });
+        }
+        </script>
 </body>
 </html>

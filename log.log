@@ -704,3 +704,1295 @@
 	Maximum pool size: 20
 2025-05-14 00:27:03 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-05-14 00:27:03 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@60f2b3cf] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-15 21:22:27 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-15 21:22:28 - HHH000026: Second-level cache disabled
+2025-05-15 21:22:28 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-15 21:22:28 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-15 21:22:28 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-15 21:22:28 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-15 21:22:28 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-15 21:22:31 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-15 21:22:31 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@604e1eff] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-15 21:22:31 - HHH000026: Second-level cache disabled
+2025-05-15 21:22:31 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-15 21:22:31 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-15 21:22:31 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-15 21:22:31 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-15 21:22:31 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-15 21:22:31 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-15 21:22:31 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6f650f10] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-15 22:51:09 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-15 22:51:10 - HHH000026: Second-level cache disabled
+2025-05-15 22:51:11 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-15 22:51:11 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-15 22:51:11 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-15 22:51:11 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-15 22:51:11 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-15 22:51:19 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-15 22:51:19 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@171770ca] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-15 22:51:20 - HHH000026: Second-level cache disabled
+2025-05-15 22:51:20 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-15 22:51:20 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-15 22:51:20 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-15 22:51:20 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-15 22:51:20 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-15 22:51:20 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-15 22:51:20 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@55c93815] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-15 23:29:55 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-15 23:29:56 - HHH000026: Second-level cache disabled
+2025-05-15 23:29:57 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-15 23:29:57 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-15 23:29:57 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-15 23:29:57 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-15 23:29:57 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-15 23:30:01 - HHH000026: Second-level cache disabled
+2025-05-15 23:30:01 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-15 23:30:01 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-15 23:30:01 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-15 23:30:01 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-15 23:30:01 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-15 23:30:02 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-15 23:30:02 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-15 23:30:02 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d0f5b8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-15 23:30:02 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@73305e60] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-15 23:48:37 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-15 23:48:38 - HHH000026: Second-level cache disabled
+2025-05-15 23:48:38 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-15 23:48:38 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-15 23:48:39 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-15 23:48:39 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-15 23:48:39 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-15 23:48:44 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-15 23:48:45 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@50b34b82] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-15 23:48:45 - HHH000026: Second-level cache disabled
+2025-05-15 23:48:45 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-15 23:48:45 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-15 23:48:45 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-15 23:48:45 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-15 23:48:45 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-15 23:48:45 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-15 23:48:45 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3bb87a5a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 00:28:27 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-16 00:28:28 - HHH000026: Second-level cache disabled
+2025-05-16 00:28:28 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 00:28:28 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 00:28:29 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 00:28:29 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 00:28:29 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 00:28:31 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 00:28:31 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@79ea92ae] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 00:28:32 - HHH000026: Second-level cache disabled
+2025-05-16 00:28:32 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 00:28:32 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 00:28:32 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 00:28:32 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 00:28:32 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 00:28:32 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 00:28:32 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5948abe3] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 10:37:45 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-16 10:37:46 - HHH000026: Second-level cache disabled
+2025-05-16 10:37:46 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 10:37:46 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 10:37:47 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 10:37:47 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 10:37:47 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 10:37:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 10:37:51 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@50b34b82] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 10:37:51 - HHH000026: Second-level cache disabled
+2025-05-16 10:37:51 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 10:37:51 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 10:37:51 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 10:37:51 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 10:37:51 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 10:37:52 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 10:37:52 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3bb87a5a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 10:47:27 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-16 10:47:27 - HHH000026: Second-level cache disabled
+2025-05-16 10:47:28 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 10:47:28 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 10:47:28 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 10:47:28 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 10:47:28 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 10:47:30 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 10:47:30 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5c5778b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 10:47:30 - HHH000026: Second-level cache disabled
+2025-05-16 10:47:30 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 10:47:30 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 10:47:30 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 10:47:30 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 10:47:30 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 10:47:30 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 10:47:30 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3e894a29] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 10:54:54 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-16 10:54:55 - HHH000026: Second-level cache disabled
+2025-05-16 10:54:56 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 10:54:56 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 10:54:57 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 10:54:57 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 10:54:57 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 10:55:01 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 10:55:01 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@47de776] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 10:55:01 - HHH000026: Second-level cache disabled
+2025-05-16 10:55:01 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 10:55:01 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 10:55:01 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 10:55:01 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 10:55:01 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 10:55:01 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 10:55:01 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@47476fee] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 11:05:11 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-16 11:05:12 - HHH000026: Second-level cache disabled
+2025-05-16 11:05:13 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 11:05:13 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 11:05:14 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 11:05:14 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 11:05:14 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 11:05:17 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 11:05:17 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d03208b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 11:05:17 - HHH000026: Second-level cache disabled
+2025-05-16 11:05:17 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 11:05:17 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 11:05:17 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 11:05:17 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 11:05:17 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 11:05:18 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 11:05:18 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5c5a8865] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 11:05:23 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-16 11:05:24 - HHH000026: Second-level cache disabled
+2025-05-16 11:05:24 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 11:05:24 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 11:05:25 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 11:05:25 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 11:05:25 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 11:05:26 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 11:05:26 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@455fb5a5] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 11:05:48 - HHH000026: Second-level cache disabled
+2025-05-16 11:05:48 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 11:05:48 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 11:05:48 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 11:05:48 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 11:05:48 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 11:05:48 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 11:05:48 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@35ab733b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 11:13:17 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-16 11:13:17 - HHH000026: Second-level cache disabled
+2025-05-16 11:13:18 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 11:13:18 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 11:13:18 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 11:13:18 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 11:13:18 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 11:13:20 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 11:13:20 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4aa852fa] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 11:13:20 - HHH000026: Second-level cache disabled
+2025-05-16 11:13:20 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 11:13:20 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 11:13:20 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 11:13:20 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 11:13:20 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 11:13:20 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 11:13:20 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@60be4fc5] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 11:34:33 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-16 11:34:34 - HHH000026: Second-level cache disabled
+2025-05-16 11:34:34 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 11:34:34 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 11:34:35 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 11:34:35 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 11:34:35 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 11:34:39 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 11:34:39 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@29603d6c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-16 11:34:39 - HHH000026: Second-level cache disabled
+2025-05-16 11:34:39 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-16 11:34:39 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-16 11:34:39 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-16 11:34:39 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-16 11:34:39 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-16 11:34:39 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-16 11:34:39 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4ed51c8c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-18 21:21:05 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-18 21:21:06 - HHH000026: Second-level cache disabled
+2025-05-18 21:21:06 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-18 21:21:06 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-18 21:21:07 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-18 21:21:07 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 21:21:07 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-18 21:21:11 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 21:21:11 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@74b47a70] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-18 21:21:12 - HHH000026: Second-level cache disabled
+2025-05-18 21:21:12 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-18 21:21:12 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-18 21:21:12 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-18 21:21:12 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-18 21:21:12 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-18 21:21:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-18 21:21:12 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2b370607] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 16:11:48 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-20 16:11:49 - HHH000026: Second-level cache disabled
+2025-05-20 16:11:50 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 16:11:50 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 16:11:50 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 16:11:50 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 16:11:51 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 16:11:55 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 16:11:55 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@40f245] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 16:11:56 - HHH000026: Second-level cache disabled
+2025-05-20 16:11:56 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 16:11:56 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 16:11:56 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 16:11:56 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 16:11:56 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 16:11:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 16:11:56 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@78cff71a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 16:31:41 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-20 16:31:42 - HHH000026: Second-level cache disabled
+2025-05-20 16:31:42 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 16:31:42 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 16:31:43 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 16:31:43 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 16:31:43 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 16:31:46 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 16:31:46 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@a5bf173] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 16:33:20 - HHH000026: Second-level cache disabled
+2025-05-20 16:33:20 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 16:33:20 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 16:33:20 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 16:33:20 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 16:33:20 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 16:33:20 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 16:33:20 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@9ff4124] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 17:17:03 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-20 17:17:03 - HHH000026: Second-level cache disabled
+2025-05-20 17:17:03 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 17:17:03 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 17:17:03 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 17:17:03 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 17:17:03 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 17:17:05 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 17:17:05 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@34944c00] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 17:17:12 - HHH000026: Second-level cache disabled
+2025-05-20 17:17:12 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 17:17:12 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 17:17:12 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 17:17:12 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 17:17:12 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 17:17:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 17:17:12 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4e20cd9b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 17:45:14 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-20 17:45:15 - HHH000026: Second-level cache disabled
+2025-05-20 17:45:15 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 17:45:15 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 17:45:15 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 17:45:15 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 17:45:15 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 17:45:17 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 17:45:17 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@54f4ba30] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 17:45:23 - HHH000026: Second-level cache disabled
+2025-05-20 17:45:23 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 17:45:23 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 17:45:23 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 17:45:23 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 17:45:23 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 17:45:23 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 17:45:23 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@884a40a] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 17:46:49 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-20 17:46:50 - HHH000026: Second-level cache disabled
+2025-05-20 17:46:50 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 17:46:50 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 17:46:51 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 17:46:51 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 17:46:51 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 17:46:54 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 17:46:54 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@21174e07] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 17:47:17 - HHH000026: Second-level cache disabled
+2025-05-20 17:47:17 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 17:47:17 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 17:47:17 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 17:47:17 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 17:47:17 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 17:47:17 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 17:47:17 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@6fe48628] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 17:59:23 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-20 17:59:24 - HHH000026: Second-level cache disabled
+2025-05-20 17:59:25 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 17:59:25 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 17:59:26 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 17:59:26 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 17:59:26 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 17:59:30 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 17:59:30 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@39c4f6c6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 17:59:30 - HHH000026: Second-level cache disabled
+2025-05-20 17:59:30 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 17:59:30 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 17:59:30 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 17:59:30 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 17:59:30 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 17:59:30 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 17:59:30 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3fd3e7cd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 18:12:48 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-20 18:12:48 - HHH000026: Second-level cache disabled
+2025-05-20 18:12:48 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 18:12:49 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 18:12:49 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 18:12:49 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 18:12:49 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 18:12:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 18:12:51 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@438710bd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 18:12:51 - HHH000026: Second-level cache disabled
+2025-05-20 18:12:51 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 18:12:51 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 18:12:51 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 18:12:51 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 18:12:51 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 18:12:51 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 18:12:51 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2e7d783e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-20 22:56:51 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-20 22:56:52 - HHH000026: Second-level cache disabled
+2025-05-20 22:56:53 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-20 22:56:53 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-20 22:56:54 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-20 22:56:54 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-20 22:56:54 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-20 22:56:58 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-20 22:56:58 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3b0aacea] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 09:46:49 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-21 09:46:56 - HHH000026: Second-level cache disabled
+2025-05-21 09:46:59 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-21 09:46:59 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-21 09:47:03 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-21 09:47:03 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-21 09:47:03 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-21 09:47:27 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-21 09:47:28 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@67191e90] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 09:47:31 - HHH000026: Second-level cache disabled
+2025-05-21 09:47:31 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-21 09:47:31 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-21 09:47:31 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-21 09:47:31 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-21 09:47:31 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-21 09:47:32 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-21 09:47:32 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@66ae7f69] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 20:43:08 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-21 20:43:09 - HHH000026: Second-level cache disabled
+2025-05-21 20:43:09 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-21 20:43:09 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-21 20:43:10 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-21 20:43:10 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-21 20:43:10 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-21 20:43:12 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-21 20:43:12 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5d6e5aa6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-21 20:43:13 - HHH000026: Second-level cache disabled
+2025-05-21 20:43:13 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-21 20:43:13 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-21 20:43:13 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-21 20:43:13 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-21 20:43:13 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-21 20:43:13 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-21 20:43:13 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@20530def] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-22 01:25:30 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-22 01:25:30 - HHH000026: Second-level cache disabled
+2025-05-22 01:25:30 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-22 01:25:30 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-22 01:25:31 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-22 01:25:31 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-22 01:25:31 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-22 01:25:33 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22 01:25:33 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3d7e94d6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-22 01:26:01 - HHH000026: Second-level cache disabled
+2025-05-22 01:26:01 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-22 01:26:01 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-22 01:26:01 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-22 01:26:01 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-22 01:26:01 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-22 01:26:01 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22 01:26:01 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@71fcf81f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-22 01:36:13 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:36:13 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:36:43 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:36:43 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:37:10 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:37:10 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:03 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:03 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:04 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:04 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:05 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:05 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:05 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:05 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:06 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:06 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:06 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:06 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:06 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:06 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:07 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:07 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:07 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:07 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:08 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:08 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 01:39:09 - SQL Error: 1406, SQLState: 22001
+2025-05-22 01:39:09 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 07:57:10 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-22 07:57:11 - HHH000026: Second-level cache disabled
+2025-05-22 07:57:12 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-22 07:57:12 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-22 07:57:13 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-22 07:57:13 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-22 07:57:13 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-22 07:57:20 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22 07:57:20 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@39cc5172] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-22 07:57:20 - HHH000026: Second-level cache disabled
+2025-05-22 07:57:20 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-22 07:57:20 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-22 07:57:20 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-22 07:57:20 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-22 07:57:20 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-22 07:57:21 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22 07:57:21 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5117bebc] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-22 07:59:10 - SQL Error: 1406, SQLState: 22001
+2025-05-22 07:59:10 - Data truncation: Data too long for column 'avatar_url' at row 1
+2025-05-22 08:07:49 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-22 08:07:50 - HHH000026: Second-level cache disabled
+2025-05-22 08:07:51 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-22 08:07:51 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-22 08:07:51 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-22 08:07:51 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-22 08:07:51 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-22 08:07:54 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22 08:07:54 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@311f0d6b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-22 08:07:59 - HHH000026: Second-level cache disabled
+2025-05-22 08:07:59 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-22 08:07:59 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-22 08:07:59 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-22 08:07:59 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-22 08:07:59 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-22 08:07:59 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-22 08:07:59 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1c1337dd] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-24 15:01:28 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-24 15:01:29 - HHH000026: Second-level cache disabled
+2025-05-24 15:01:29 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-24 15:01:29 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-24 15:01:30 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-24 15:01:30 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 15:01:30 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-24 15:01:33 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 15:01:33 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5a391083] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-24 15:01:33 - HHH000026: Second-level cache disabled
+2025-05-24 15:01:33 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-24 15:01:33 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-24 15:01:33 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-24 15:01:33 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 15:01:33 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-24 15:01:33 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 15:01:33 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@67bec467] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+15:03:23 2025-05-24 : Sinh viên ID 24IT005 đã được đăng ký
+15:04:10 2025-05-24 : Sinh viên ID 24IT005 đã thay đổi thông tin
+2025-05-24 22:51:01 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-24 22:51:01 - HHH000026: Second-level cache disabled
+2025-05-24 22:51:01 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-24 22:51:01 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-24 22:51:02 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-24 22:51:02 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 22:51:02 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-24 22:51:04 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 22:51:04 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@63e86665] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-24 22:56:26 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-24 22:56:26 - HHH000026: Second-level cache disabled
+2025-05-24 22:56:26 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-24 22:56:26 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-24 22:56:26 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-24 22:56:26 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 22:56:27 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-24 22:56:29 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 22:56:29 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@63b0868] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-24 23:00:01 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-24 23:00:01 - HHH000026: Second-level cache disabled
+2025-05-24 23:00:02 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-24 23:00:02 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-24 23:00:02 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-24 23:00:02 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 23:00:02 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-24 23:00:04 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 23:00:04 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2ed118ce] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-24 23:06:37 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-24 23:06:38 - HHH000026: Second-level cache disabled
+2025-05-24 23:06:39 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-24 23:06:39 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-24 23:06:40 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-24 23:06:40 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 23:06:40 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-24 23:06:44 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 23:06:44 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@44704cc9] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-24 23:10:51 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-24 23:10:51 - HHH000026: Second-level cache disabled
+2025-05-24 23:10:51 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-24 23:10:51 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-24 23:10:52 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-24 23:10:52 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 23:10:52 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-24 23:10:54 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 23:10:54 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3176ebac] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-24 23:16:50 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-24 23:16:51 - HHH000026: Second-level cache disabled
+2025-05-24 23:16:52 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-24 23:16:52 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-24 23:16:52 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-24 23:16:52 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 23:16:52 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-24 23:16:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 23:16:56 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2237ffbe] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-24 23:39:54 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-24 23:39:54 - HHH000026: Second-level cache disabled
+2025-05-24 23:39:54 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-24 23:39:54 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-24 23:39:54 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-24 23:39:54 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 23:39:54 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-24 23:39:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 23:39:56 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@7dc2c416] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-24 23:44:35 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-24 23:44:36 - HHH000026: Second-level cache disabled
+2025-05-24 23:44:36 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-24 23:44:36 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-24 23:44:37 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-24 23:44:37 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-24 23:44:37 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-24 23:44:40 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-24 23:44:40 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@18ef4d1c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 00:07:09 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-25 00:07:09 - HHH000026: Second-level cache disabled
+2025-05-25 00:07:09 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 00:07:09 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 00:07:10 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 00:07:10 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 00:07:10 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 00:07:14 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 00:07:14 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@cd032cf] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 00:23:29 - HHH000026: Second-level cache disabled
+2025-05-25 00:23:29 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 00:23:29 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 00:23:29 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 00:23:29 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 00:23:29 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 00:23:29 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 00:23:29 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3e6a0dd9] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 01:04:29 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-25 01:04:30 - HHH000026: Second-level cache disabled
+2025-05-25 01:04:30 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 01:04:30 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 01:04:31 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 01:04:31 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 01:04:31 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 01:04:36 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 01:04:36 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5624ee4b] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 01:04:36 - HHH000026: Second-level cache disabled
+2025-05-25 01:04:36 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 01:04:36 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 01:04:36 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 01:04:36 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 01:04:36 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 01:04:36 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 01:04:36 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5c8f71eb] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 12:08:07 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-25 12:08:08 - HHH000026: Second-level cache disabled
+2025-05-25 12:08:08 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 12:08:08 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 12:08:09 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 12:08:09 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 12:08:09 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 12:08:13 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 12:08:13 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@ce61c2c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 12:08:13 - HHH000026: Second-level cache disabled
+2025-05-25 12:08:13 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 12:08:13 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 12:08:13 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 12:08:13 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 12:08:13 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 12:08:13 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 12:08:13 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2dc1432f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 12:58:06 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-25 12:58:06 - HHH000026: Second-level cache disabled
+2025-05-25 12:58:06 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 12:58:06 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 12:58:06 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 12:58:06 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 12:58:06 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 12:58:08 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 12:58:08 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5a4a1846] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 12:58:16 - HHH000026: Second-level cache disabled
+2025-05-25 12:58:16 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 12:58:16 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 12:58:16 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 12:58:16 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 12:58:16 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 12:58:17 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 12:58:17 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3b9f189] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 13:25:12 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-25 13:25:12 - HHH000026: Second-level cache disabled
+2025-05-25 13:25:13 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 13:25:13 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 13:25:13 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 13:25:13 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 13:25:13 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 13:25:16 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 13:25:16 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@780048ef] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 13:25:21 - HHH000026: Second-level cache disabled
+2025-05-25 13:25:21 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 13:25:21 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 13:25:21 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 13:25:21 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 13:25:21 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 13:25:21 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 13:25:21 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@42831ae2] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 13:39:59 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-25 13:40:00 - HHH000026: Second-level cache disabled
+2025-05-25 13:40:00 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 13:40:00 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 13:40:01 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 13:40:01 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 13:40:01 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 13:40:03 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 13:40:03 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@92bd024] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 13:40:09 - HHH000026: Second-level cache disabled
+2025-05-25 13:40:09 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 13:40:09 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 13:40:09 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 13:40:09 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 13:40:09 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 13:40:09 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 13:40:09 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@31c432d7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 13:47:28 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-25 13:47:29 - HHH000026: Second-level cache disabled
+2025-05-25 13:47:29 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 13:47:29 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 13:47:29 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 13:47:29 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 13:47:29 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 13:47:31 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 13:47:31 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@49a2331d] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 13:47:36 - HHH000026: Second-level cache disabled
+2025-05-25 13:47:36 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 13:47:36 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 13:47:36 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 13:47:36 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 13:47:36 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 13:47:36 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 13:47:36 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5d0078c8] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 14:36:58 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-25 14:36:58 - HHH000026: Second-level cache disabled
+2025-05-25 14:36:58 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 14:36:58 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 14:36:59 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 14:36:59 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 14:36:59 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 14:37:01 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 14:37:01 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4d9d0634] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 14:37:06 - HHH000026: Second-level cache disabled
+2025-05-25 14:37:06 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 14:37:06 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 14:37:06 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 14:37:06 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 14:37:06 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 14:37:06 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 14:37:06 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@3cbd3bd0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 16:01:33 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-25 16:01:35 - HHH000026: Second-level cache disabled
+2025-05-25 16:01:36 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 16:01:36 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 16:01:36 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 16:01:36 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 16:01:36 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 16:01:43 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 16:01:44 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5b1b9f7e] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-25 16:01:44 - HHH000026: Second-level cache disabled
+2025-05-25 16:01:44 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-25 16:01:44 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-25 16:01:44 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-25 16:01:44 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-25 16:01:44 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-25 16:01:44 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-25 16:01:44 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@79aef7ae] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-27 22:58:12 - HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-27 22:58:13 - HHH000026: Second-level cache disabled
+2025-05-27 22:58:13 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-27 22:58:13 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-27 22:58:14 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-27 22:58:14 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-27 22:58:14 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-27 22:58:20 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 22:58:20 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@707d86f3] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2025-05-27 22:58:20 - HHH000026: Second-level cache disabled
+2025-05-27 22:58:20 - HHH000022: c3p0 properties were encountered, but the c3p0 provider class was not found on the classpath; these properties are going to be ignored.
+2025-05-27 22:58:20 - HHH10001002: Using built-in connection pool (not intended for production use)
+2025-05-27 22:58:20 - HHH000511: The 5.5.5 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-27 22:58:20 - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-27 22:58:20 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/dormitorymanagement_servlet]
+	Database driver: com.mysql.cj.jdbc.Driver
+	Database version: 5.5.5
+	Autocommit mode: false
+	Isolation level: undefined/unknown
+	Minimum pool size: 1
+	Maximum pool size: 20
+2025-05-27 22:58:20 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-27 22:58:20 - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@79b43ab] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.

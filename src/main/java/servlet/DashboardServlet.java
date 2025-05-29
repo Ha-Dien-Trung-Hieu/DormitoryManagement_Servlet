@@ -1,6 +1,7 @@
 package servlet;
-
-import entity.Student; 
+ 
+import entity.Student;
+import entity.Building;
 import entity.Contract;
 import entity.Invoice;
 import entity.Room;
@@ -11,7 +12,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import chat.ChatEndpoint;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,13 +20,14 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/student/dashboard")
 public class DashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private SessionFactory sessionFactory;
-    private static final int DEFAULT_PORT = 12345;
 
     
     @Override
@@ -42,13 +43,6 @@ public class DashboardServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/login.jsp?error=not_authenticated");
             return;
         }
-        
-     	String ipAddress = request.getRemoteAddr();
-        String forwardedFor = request.getHeader("X-Forwarded-For");
-        if (forwardedFor != null && !forwardedFor.isEmpty()) {
-            ipAddress = forwardedFor.split(",")[0].trim();
-        }
-
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
 
@@ -94,23 +88,17 @@ public class DashboardServlet extends HttpServlet {
             
             request.setAttribute("roommates", roommates);
             
-            List<Object[]> availableRooms = new ArrayList<>();
-            if (fullStudent.getContract() == null || !"Active".equals(fullStudent.getContract().getStatus())) {
-                availableRooms = session.createQuery(
-                        "SELECT r.roomID, r.roomType, r.capacity, r.currentOccupants, r.price, b.name " +
-                        "FROM Room r JOIN r.building b WHERE r.currentOccupants < r.capacity",
-                        Object[].class)
-                    .getResultList();
-                System.out.println("Available rooms: " + availableRooms.size());
+            // Lấy danh sách building
+            List<Building> buildings = session.createQuery(
+                    "FROM Building b",
+                    Building.class)
+                .getResultList();
+            System.out.println("Buildings found: " + buildings.size());
+            for (Building building : buildings) {
+                System.out.println("Building: " + building.getName());
             }
-            request.setAttribute("availableRooms", availableRooms);
-
+            request.setAttribute("buildings", buildings);
             
-            // Cập nhật IP và cổng cho sinh viên
-            student.setIpAddress(ipAddress);
-            student.setPort(DEFAULT_PORT);
-            session.merge(student);
-
             // Lấy danh sách sinh viên
             Query<Student> studentQuery = session.createQuery("FROM Student", Student.class);
             List<Student> students = studentQuery.list();
@@ -129,7 +117,8 @@ public class DashboardServlet extends HttpServlet {
                         .uniqueResult();
             }
             request.setAttribute("roomServer", roomServer);
-
+            System.out.println("Loaded student: " + student.getIdSinhVien() + 
+                    ", Avatar size: " + (student.getAvatar() != null ? student.getAvatar().length : 0));
             
             
             tx.commit();

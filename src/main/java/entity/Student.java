@@ -45,13 +45,10 @@ public class Student {
 
     @Column(name = "Status")
     private String status;
+ 
+    @Column(name = "avatar", columnDefinition = "LONGBLOB")
+    private byte[] avatar; 
     
-    @Column(name = "ipAddress")
-    private String ipAddress;
-
-    @Column(name = "port")
-    private Integer port;
-
     @OneToOne(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Contract contract;
     
@@ -98,10 +95,6 @@ public class Student {
     public Contract getContract() { return contract; }
     public void setContract(Contract contract) { this.contract = contract; }
     
-    public String getIpAddress() { return ipAddress; }
-    public void setIpAddress(String ipAddress) { this.ipAddress = ipAddress; }
-
-    public Integer getPort() { return port; }
-    public void setPort(Integer port) { this.port = port; }
-    
+    public byte[] getAvatar() { return avatar; }
+    public void setAvatar(byte[] avatar) { this.avatar = avatar; }
 }

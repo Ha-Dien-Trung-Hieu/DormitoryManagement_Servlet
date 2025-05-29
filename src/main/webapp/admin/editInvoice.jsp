@@ -36,7 +36,7 @@
             <!-- Thông tin sinh viên -->
             <h4>Thông tin sinh viên</h4>
             <table class="info-table">
-                <tr><th>IDSinhVien:</th><td>${invoice.contract.student.IDSinhVien}</td></tr>
+                <tr><th>IDSinhVien:</th><td>${invoice.contract.student.idSinhVien}</td></tr>
                 <tr><th>Họ Tên:</th><td>${invoice.contract.student.fullName}</td></tr>
                 <tr><th>Ngày Sinh:</th><td><fmt:formatDate value="${invoice.contract.student.dateOfBirth}" pattern="dd/MM/yyyy"/></td></tr>
                 <tr><th>Giới Tính:</th><td>${invoice.contract.student.gender}</td></tr>

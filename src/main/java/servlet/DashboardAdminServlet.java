@@ -1,6 +1,6 @@
 package servlet;
 
-import jakarta.servlet.ServletException; 
+import jakarta.servlet.ServletException;  
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,7 +11,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.hibernate.Transaction;
 
-import chat.ChatEndpoint;
 import entity.Building;
 import entity.Contract;
 import entity.Invoice;
@@ -23,6 +22,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -30,7 +31,6 @@ import java.util.Locale;
 public class DashboardAdminServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private SessionFactory sessionFactory;
-    private static final int DEFAULT_PORT = 12345;
 
     @Override
     public void init() throws ServletException {
@@ -45,13 +45,7 @@ public class DashboardAdminServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/loginAdmin.jsp?error=not_authenticated");
             return;
         }
-        
-        // Cập nhật IP động
-    	String ipAddress = request.getRemoteAddr();
-        String forwardedFor = request.getHeader("X-Forwarded-For");
-        if (forwardedFor != null && !forwardedFor.isEmpty()) {
-            ipAddress = forwardedFor.split(",")[0].trim();
-        }
+
         
         String section = request.getParameter("section");
         if (section == null || section.isEmpty()) {
@@ -200,16 +194,12 @@ public class DashboardAdminServlet extends HttpServlet {
             Query<Manager> managerQuery = session.createQuery("FROM Manager", Manager.class);
             request.setAttribute("allManagers", managerQuery.list());
             request.setAttribute("allRooms", roomQuery.list());
-            
-            // Cập nhật IP và cổng cho quản lý
-            manager.setIpAddress(ipAddress);
-            manager.setPort(DEFAULT_PORT);
-            session.merge(manager);
 
             // Lấy danh sách sinh viên
             List<Student> students = studentQuery.list();
             request.setAttribute("allStudents", students);
-
+            
+            Collections.sort(rooms, Comparator.comparing(Room::getRoomName));
             request.setAttribute("allRooms", rooms);
 
             tx.commit();

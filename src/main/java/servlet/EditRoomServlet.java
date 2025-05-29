@@ -49,9 +49,20 @@ public class EditRoomServlet extends HttpServlet {
         try {
             String roomID = request.getParameter("roomID");
             String buildingID = request.getParameter("buildingID");
+            String floor = request.getParameter("floor");
+            String roomNumber = request.getParameter("roomNumber");
             String roomType = request.getParameter("roomType");
             long price = Long.parseLong(request.getParameter("price"));
 
+            String buildingPrefix = "";
+            switch (Integer.parseInt(buildingID)) {
+                case 1: buildingPrefix = "A"; break;
+                case 2: buildingPrefix = "B"; break;
+                case 3: buildingPrefix = "C"; break;
+                default: throw new Exception("BuildingID không hợp lệ!");
+            }
+            String roomName = buildingPrefix + floor + String.format("%02d", Integer.parseInt(roomNumber));
+            
             Map<String, Integer> capacityMap = new HashMap<>();
             capacityMap.put("Đơn", 1);
             capacityMap.put("Đôi", 2);
@@ -76,7 +87,8 @@ public class EditRoomServlet extends HttpServlet {
             room.setRoomType(roomType);
             room.setCapacity(capacity);
             room.setPrice(price);
-
+            room.setRoomName(roomName);
+            
             session.merge(room);
             transaction.commit();
             session.close();

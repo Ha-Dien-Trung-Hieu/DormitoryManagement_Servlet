@@ -1,91 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="jakarta.tags.functions" %>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Chỉnh Sửa Phòng</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<style>
-		body {
-	        background: linear-gradient(to right, #fa66ab, #fbc2eb, #a18cd1);
-	        background-size: cover;
-	        font-family: 'Arial', sans-serif;
-	        overflow-y: auto;
-	        scroll-behavior: smooth;
-	    }
-	
-	    .container {
-	        margin-top: 30px;
-	        max-width: 850px;
-	        background: rgba(255, 255, 255, 0.92);
-	        padding: 30px;
-	        border-radius: 15px;
-	        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-	    }
-	
-	    .card {
-	        border: 2px solid #007bff;
-	        border-radius: 15px;
-	        box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
-	        transition: transform 0.4s ease, box-shadow 0.4s ease;
-	    }
-	
-	    .card:hover {
-	        transform: translateY(-6px);
-	        box-shadow: 0 12px 30px rgba(0, 123, 255, 0.35);
-	    }
-	
-	    .card-header {
-	        background: linear-gradient(45deg, #007bff, #6610f2);
-	        color: white;
-	        font-weight: bold;
-	        font-size: 1.5rem;
-	        text-align: center;
-	        border-radius: 15px 15px 0 0;
-	    }
-	
-	    .btn {
-	        border-radius: 8px;
-	        transition: all 0.3s ease;
-	    }
-	
-	    .btn-success:hover {
-	        background-color: #28a745;
-	        transform: scale(1.05);
-	    }
-	
-	    .btn-secondary:hover {
-	        background-color: #6c757d;
-	        transform: scale(1.05);
-	    }
-	
-	    .form-group label {
-	        font-weight: bold;
-	        color: #333;
-	    }
-	
-	    .form-control {
-	        border: 2px solid #ced4da;
-	        border-radius: 8px;
-	        transition: all 0.3s ease;
-	    }
-	
-	    .form-control:hover {
-	        border-color: #80bdff;
-	        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-	    }
-	
-	    .form-control:focus {
-	        border-color: #007bff;
-	        box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
-	        transform: scale(1.02);
-	    }
-	
-	    .alert {
-	        border-radius: 8px;
-	    }
-   	</style>
+    <style>
+        body {
+            background: linear-gradient(to right, #fa66ab, #fbc2eb, #a18cd1);
+            background-size: cover;
+            font-family: 'Arial', sans-serif;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        .container {
+            margin-top: 30px;
+            max-width: 850px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .card {
+            border: 2px solid #007bff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 123, 255, 0.35);
+        }
+        .card-header {
+            background: linear-gradient(45deg, #007bff, #6610f2);
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+        }
+        .btn {
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .btn-success:hover {
+            background-color: #28a745;
+            transform: scale(1.05);
+        }
+        .btn-secondary:hover {
+            background-color: #6c757d;
+            transform: scale(1.05);
+        }
+        .form-group label {
+            font-weight: bold;
+            color: #333;
+        }
+        .form-control {
+            border: 2px solid #ced4da;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .form-control:hover {
+            border-color: #80bdff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+            transform: scale(1.02);
+        }
+        .alert {
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
     <div class="container form-wrapper">
@@ -100,6 +89,25 @@
                 <select id="buildingID" name="buildingID" class="form-control">
                     <c:forEach var="b" items="${buildings}">
                         <option value="${b.buildingID}" ${b.buildingID == room.building.buildingID ? 'selected' : ''}>${b.name}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="floor">Tầng:</label>
+                <select id="floor" name="floor" class="form-control" required>
+                    <c:forEach var="i" begin="1" end="5">
+                        <c:set var="floorNumber" value="${room.roomName != null && room.roomName.length() >= 3 ? room.roomName.substring(1,3) : ''}"/>
+                        <option value="${i}" ${floorNumber == i ? 'selected' : ''}>${i}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="roomNumber">Số phòng (1-20):</label>
+                <select id="roomNumber" name="roomNumber" class="form-control" required>
+                    <c:forEach var="i" begin="1" end="20">
+                        <c:set var="roomNum" value="${room.roomName != null && room.roomName.length() >= 4 ? room.roomName.substring(3) : ''}"/>
+                        <c:set var="formattedNum" value="${fn:substring('0' + i, fn:length('0' + i) - 2, fn:length('0' + i))}"/>
+                        <option value="${i}" ${roomNum == formattedNum ? 'selected' : ''}>${i}</option>
                     </c:forEach>
                 </select>
             </div>

@@ -117,7 +117,7 @@
                 <form action="<%=request.getContextPath()%>/student/updateProfile" method="post">
                     <div class="form-group">
                         <label for="idSinhVien">ID Sinh Viên:</label>
-                        <input type="text" class="form-control" id="idSinhVien" value="${student.IDSinhVien}" readonly>
+                        <input type="text" class="form-control" id="idSinhVien" value="${student.idSinhVien}" readonly>
                     </div>
                     <div class="form-group">
                         <label for="fullName">Họ Tên:</label>

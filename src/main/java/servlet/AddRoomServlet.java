@@ -17,9 +17,6 @@ import java.util.List;
 
 @WebServlet("/admin/addRoom")
 public class AddRoomServlet extends HttpServlet {
-    private static final String DEFAULT_IP_ADDRESS = "0.0.0.0";
-    private static final int BASE_PORT = 12356; 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -41,10 +38,22 @@ public class AddRoomServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             String buildingID = request.getParameter("buildingID");
+            String floor = request.getParameter("floor");
+            String roomNumber = request.getParameter("roomNumber");
             String roomType = request.getParameter("roomType");
             int capacity = Integer.parseInt(request.getParameter("capacity"));
             long price = Long.parseLong(request.getParameter("price"));
 
+            // get A, B, C building name
+            String buildingPrefix = "";
+            switch (Integer.parseInt(buildingID)) {
+                case 1: buildingPrefix = "A"; break;
+                case 2: buildingPrefix = "B"; break;
+                case 3: buildingPrefix = "C"; break;
+                default: throw new Exception("BuildingID không hợp lệ!");
+            }
+            String roomName = buildingPrefix + floor + String.format("%02d", Integer.parseInt(roomNumber));
+            
             SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
             if (sessionFactory == null) {
                 throw new Exception("SessionFactory is null!");
@@ -56,11 +65,6 @@ public class AddRoomServlet extends HttpServlet {
             if (building == null) {
                 throw new Exception("Tòa nhà không tồn tại!");
             }
-
-            Integer maxPort = session.createQuery("SELECT MAX(port) FROM Room", Integer.class)
-                    .uniqueResult();
-            int newPort = (maxPort != null && maxPort >= BASE_PORT) ? maxPort + 1 : BASE_PORT + 1;
-
             
             Room room = new Room();
             room.setBuilding(building);
@@ -68,13 +72,11 @@ public class AddRoomServlet extends HttpServlet {
             room.setCapacity(capacity);
             room.setPrice(price);
             room.setCurrentOccupants(0);
-            room.setIpAddress(DEFAULT_IP_ADDRESS);
-            room.setPort(newPort);
-
+            room.setRoomName(roomName);
+            
             session.persist(room);
             transaction.commit();
             session.close();
-            chat.ChatEndpoint.startRoomServer(room.getRoomID(), DEFAULT_IP_ADDRESS, newPort);
 
             response.sendRedirect(request.getContextPath() + "/admin/dashboard?section=rooms");
         } catch (NumberFormatException e) {

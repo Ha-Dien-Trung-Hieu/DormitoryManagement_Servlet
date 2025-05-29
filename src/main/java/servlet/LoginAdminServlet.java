@@ -16,7 +16,6 @@ import java.io.IOException;
 @WebServlet("/loginAdmin")
 public class LoginAdminServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final int DEFAULT_PORT = 12345;
     
 
     @Override
@@ -33,13 +32,7 @@ public class LoginAdminServlet extends HttpServlet {
 		String adminID = request.getParameter("AdminID");
 		String password = request.getParameter("Password");
 
-		String ipAddress = request.getRemoteAddr();
-        String forwardedFor = request.getHeader("X-Forwarded-For");
-        if (forwardedFor != null && !forwardedFor.isEmpty()) {
-            ipAddress = forwardedFor.split(",")[0].trim();
-        }
-
-		if (adminID == null || adminID.trim().isEmpty() || password == null || password.trim().isEmpty()) {
+			if (adminID == null || adminID.trim().isEmpty() || password == null || password.trim().isEmpty()) {
             response.sendRedirect(request.getContextPath() + "/loginAdmin.jsp?error=invalid");
             return;
         }
@@ -54,10 +47,7 @@ public class LoginAdminServlet extends HttpServlet {
             System.out.println("Manager found: " + (manager != null));
 
 			if (manager != null && BCrypt.checkpw(password, manager.getPassword())) {
-				manager.setIpAddress(ipAddress);
-                manager.setPort(DEFAULT_PORT);
                 session.beginTransaction();
-                session.update(manager);
                 session.getTransaction().commit();
                 
 				request.getSession().setAttribute("manager", manager);

@@ -1,4 +1,4 @@
-D:\Java\Dormitory_Management_Servlet\src\main\java\chat\ChatEndpoint.java
+D:\Java\Dormitory_Management_Servlet\src\main\java\chat\ChatWebSocketEndpoint.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\entity\Building.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\entity\Contract.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\entity\Invoice.java
@@ -16,6 +16,7 @@ D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\DeleteStudentServlet.
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\EditInvoiceServlet.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\EditRoomServlet.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\GenderDataServlet.java
+D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\GetAvatarServlet.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\LoginAdminServlet.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\LoginStudentServlet.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\PrintInvoiceServlet.java
@@ -24,6 +25,7 @@ D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\ResetPasswordServlet.
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\RoomBookingServlet.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\RoomServlet.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\SendResetCodeServlet.java
+D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\UpdateAvatarServlet.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\UpdateProfileServlet.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\servlet\VerifyCodeServlet.java
 D:\Java\Dormitory_Management_Servlet\src\main\java\util\CommonLogger.java

@@ -11,6 +11,9 @@ public class Room {
     @Column(name = "RoomID")
     private Integer roomID;
 
+    @Column(name = "RoomName", unique = true) //, nullable = false
+    private String roomName;
+    
     @Column(name = "RoomType")
     private String roomType;
 
@@ -23,12 +26,6 @@ public class Room {
     @Column(name = "Price")
     private Long price;
     
-    @Column(name = "ipAddress")
-    private String ipAddress;
-
-    @Column(name = "port")
-    private Integer port;
-
     @Version
     private int version;
     
@@ -42,6 +39,9 @@ public class Room {
     // Getters and Setters
     public Integer getRoomID() { return roomID; }
     public void setRoomID(Integer roomID) { this.roomID = roomID; }
+    
+    public String getRoomName() { return roomName; }
+    public void setRoomName(String roomName) { this.roomName = roomName; }
     
     public String getRoomType() { return roomType; }
     public void setRoomType(String roomType) { this.roomType = roomType; }
@@ -63,10 +63,5 @@ public class Room {
     
     public int getVersion() { return version; }
     public void setVersion(int version) { this.version = version; }
-    
-    public String getIpAddress() { return ipAddress; }
-    public void setIpAddress(String ipAddress) { this.ipAddress = ipAddress; }
 
-    public Integer getPort() { return port; }
-    public void setPort(Integer port) { this.port = port; }
 }

@@ -23,12 +23,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 @WebServlet("/student/bookRoom")
 public class RoomBookingServlet extends HttpServlet {
-	private static final ConcurrentHashMap<Integer, ReentrantLock> roomLocks = new ConcurrentHashMap<>();
-
+	private static final ConcurrentHashMap<String, Date> roomLockTimes = new ConcurrentHashMap<>();
+	private static final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Student student = (Student) request.getSession().getAttribute("student");
@@ -42,17 +45,14 @@ public class RoomBookingServlet extends HttpServlet {
             return;
         }
 
-        int roomId;
+        String roomName;
         try {
-            roomId = Integer.parseInt(request.getParameter("RoomID"));
-        } catch (NumberFormatException e) {
-            response.sendRedirect(request.getContextPath() + "/student/dashboard?error=invalid_room_id");
-            return;
-        }
-
-        ReentrantLock lock = roomLocks.computeIfAbsent(roomId, k -> new ReentrantLock());
-        if (!lock.tryLock()) {
-            response.sendRedirect(request.getContextPath() + "/student/dashboard?error=room_being_booked");
+            roomName = request.getParameter("RoomName");
+            if (roomName == null || roomName.trim().isEmpty()) {
+                throw new Exception("RoomName không hợp lệ!");
+            }
+        } catch (Exception e) {
+            response.sendRedirect(request.getContextPath() + "/student/dashboard?error=invalid_room_name");
             return;
         }
 
@@ -61,7 +61,7 @@ public class RoomBookingServlet extends HttpServlet {
         try {
             tx = session.beginTransaction();
 
-            // Kiểm tra hợp đồng đang hoạt động
+            // Kiểm tra hợp đồng hoạt động
             List<Contract> activeContracts = session.createQuery(
                     "FROM Contract c WHERE c.student = :student AND c.status = 'Active'", Contract.class)
                 .setParameter("student", student)
@@ -69,19 +69,37 @@ public class RoomBookingServlet extends HttpServlet {
             if (!activeContracts.isEmpty()) {
                 response.sendRedirect(request.getContextPath() + "/student/dashboard?error=already_has_active_contract");
                 return;
-            }
+            	}
 
-            Room room = session.get(Room.class, roomId);
-            if (room == null) {
-                response.sendRedirect(request.getContextPath() + "/student/dashboard?error=room_not_found");
-                return;
-            }
+            Room room = session.createQuery("FROM Room r WHERE r.roomName = :roomName", Room.class)
+                    .setParameter("roomName", roomName)
+                    .uniqueResult();
+                if (room == null) {
+                    response.sendRedirect(request.getContextPath() + "/student/dashboard?error=room_not_found");
+                    return;
+                }
+                
+                Date lockTime = roomLockTimes.get(roomName);
+                if (lockTime != null) {
+                    long timeElapsed = new Date().getTime() - lockTime.getTime();
+                    if (timeElapsed < TimeUnit.DAYS.toMillis(3) && room.getCurrentOccupants() >= room.getCapacity()) {
+                        long remainingDays = 3 - TimeUnit.MILLISECONDS.toDays(timeElapsed);
+                        request.setAttribute("lockRemainingTime", remainingDays);
+                        response.sendRedirect(request.getContextPath() + "/student/dashboard?error=room_locked");
+                        return;
+                    } else {
+                        roomLockTimes.remove(roomName); // Open nếu quá 3 ngày or phòng k đầy
+                    }
+                }
 
-            if (room.getCurrentOccupants() >= room.getCapacity()) {
-                response.sendRedirect(request.getContextPath() + "/student/dashboard?error=room_full");
-                return;
-            }
-
+                if (room.getCurrentOccupants() >= room.getCapacity()) {
+                    // Khóa lại nếu đầy phòng
+                    roomLockTimes.put(roomName, new Date());
+                    scheduler.schedule(() -> roomLockTimes.remove(roomName), 3, TimeUnit.DAYS);
+                    response.sendRedirect(request.getContextPath() + "/student/dashboard?error=room_full");
+                    return;
+                }
+                
             Contract contract = new Contract();
             contract.setStudent(student);
             contract.setRoom(room);
@@ -90,10 +108,10 @@ public class RoomBookingServlet extends HttpServlet {
             calendar.setTime(new Date());
             calendar.add(Calendar.YEAR, 1);
             contract.setEndDate(calendar.getTime());
-            contract.setStatus("Active");
-
+            contract.setStatus("Pending");
+            
             room.setCurrentOccupants(room.getCurrentOccupants() + 1);
-            student.setStatus("InDormitory");
+            student.setStatus("Pending");
 
             session.save(contract);
             
@@ -101,9 +119,9 @@ public class RoomBookingServlet extends HttpServlet {
             Invoice invoice = new Invoice();
             invoice.setContract(contract);
             invoice.setIssueDate(new Date());
-            invoice.setPaymentDate(null); // PaymentDate NULL
+            invoice.setPaymentDate(null); 
             invoice.setAmount(room.getPrice()); 
-            invoice.setPaymentStatus("Unpaid"); // Unpaid
+            invoice.setPaymentStatus("Unpaid"); 
             
             session.save(invoice);
             
@@ -111,8 +129,7 @@ public class RoomBookingServlet extends HttpServlet {
             session.update(student);
             
             // Ghi log
-            CommonLogger.logEvent("Sinh viên ID " + student.getIdSinhVien() + " đã đặt phòng " + roomId);
-
+            CommonLogger.logEvent("Sinh viên ID " + student.getIdSinhVien() + " đã đặt phòng " + roomName);
             
             tx.commit();
 
@@ -125,8 +142,6 @@ public class RoomBookingServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/student/dashboard?error=booking_failed&reason=" + e.getMessage());
         } finally {
             session.close();
-            lock.unlock();
-            roomLocks.remove(roomId, lock);
         }
     }
 }
