@@ -34,8 +34,8 @@ public class UpdateProfileServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/student/login.jsp?error=not_authenticated");
             return;
         }
-        Integer studentID = student.getStudentID();
-        if (studentID == null) {
+        String idSinhVien = student.getIdSinhVien();
+        if (idSinhVien == null) {
             System.out.println("StudentID is null or empty");
             response.sendRedirect(request.getContextPath() + "/student/login.jsp?error=invalid_student_id");
             return;
@@ -44,9 +44,9 @@ public class UpdateProfileServlet extends HttpServlet {
         	Session session = null;
         try {
         	session = HibernateUtil.getSessionFactory().openSession();
-        	System.out.println("Opened Hibernate session for studentID: " + studentID);
+        	System.out.println("Opened Hibernate session for studentID: " + idSinhVien);
             // Lấy student đầy đủ từ database
-            Student fullStudent = session.get(Student.class, student.getStudentID());
+            Student fullStudent = session.get(Student.class, student.getIdSinhVien());
             if (fullStudent == null) {
                 response.sendRedirect(request.getContextPath() + "/student/login.jsp?error=not_authenticated");
                 return;
@@ -85,7 +85,7 @@ public class UpdateProfileServlet extends HttpServlet {
             tx = session.beginTransaction();
 
             // Lấy student từ database
-            Student fullStudent = session.get(Student.class, student.getStudentID());
+            Student fullStudent = session.get(Student.class, student.getIdSinhVien());
             if (fullStudent == null) {
                 response.sendRedirect(request.getContextPath() + "/login.jsp?error=not_authenticated");
                 return;
@@ -130,10 +130,10 @@ public class UpdateProfileServlet extends HttpServlet {
                     throw new IllegalArgumentException("invalid_email");
                 }
                 Query<Long> emailQuery = session.createQuery(
-                        "SELECT COUNT(*) FROM Student s WHERE s.email = :email AND s.studentID != :studentID",
+                        "SELECT COUNT(*) FROM Student s WHERE s.email = :email AND s.idSinhVien != :idSinhVien",
                         Long.class);
                 emailQuery.setParameter("email", email);
-                emailQuery.setParameter("studentID", fullStudent.getStudentID());
+                emailQuery.setParameter("idSinhVien", fullStudent.getIdSinhVien());
                 if (emailQuery.uniqueResult() > 0) {
                     throw new IllegalArgumentException("invalid_email");
                 }

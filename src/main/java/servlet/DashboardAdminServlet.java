@@ -55,7 +55,7 @@ public class DashboardAdminServlet extends HttpServlet {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();     
-            
+            // Xử lý Trang chủ
             // 1. Count ALL Student
             Query<Long> studentCountQuery = session.createQuery("SELECT COUNT(*) FROM Student", Long.class);
             Long totalStudents = studentCountQuery.getSingleResult();
@@ -89,7 +89,7 @@ public class DashboardAdminServlet extends HttpServlet {
             pendingInvoicesQuery.setParameter("status", "Unpaid");
             Long pendingInvoices = pendingInvoicesQuery.getSingleResult();
 
-            // Xử lý 'Students'
+            // Xử lý Quản Lý Student (tab quản lý)
             if ("students".equals(section)) {
                 String search = request.getParameter("search");
                 String sort = request.getParameter("sort");
@@ -133,7 +133,8 @@ public class DashboardAdminServlet extends HttpServlet {
             request.setAttribute("totalBuildings", totalBuildings);
             request.setAttribute("annualRevenue", annualRevenue);
             request.setAttribute("pendingInvoices", pendingInvoices);
-
+            
+            // Xử lý room với building
             Query<Room> roomQuery = session.createQuery("FROM Room", Room.class);
             List<Room> rooms = roomQuery.list();
 
@@ -143,6 +144,7 @@ public class DashboardAdminServlet extends HttpServlet {
             request.setAttribute("rooms", rooms);
             request.setAttribute("buildings", buildings);
             
+            // Xử lý Thông kê (tab thống kê)
             // Tỉ lệ sinh viên nam và nữ
             Query<Long> maleStudentsQuery = session.createQuery(
                 "SELECT COUNT(*) FROM Student WHERE LOWER(gender) = 'Male'", Long.class);
@@ -157,8 +159,8 @@ public class DashboardAdminServlet extends HttpServlet {
             Long studentsWithoutRooms = totalStudents - studentsWithRooms;
 
             // Doanh thu từng tháng
-            // Giả sử bạn muốn doanh thu của 12 tháng gần nhất
             List<Object[]> monthlyRevenue = new ArrayList<>();
+            // 12 tháng gần nhất
             for (int i = 0; i < 12; i++) {
                 LocalDate date = LocalDate.now().minusMonths(i);
                 int year = date.getYear();
@@ -173,12 +175,11 @@ public class DashboardAdminServlet extends HttpServlet {
             }
 
             // Tỉ lệ phòng còn trống và phòng đã đầy
-            
             Query<Long> fullRoomsQuery = session.createQuery(
                 "SELECT COUNT(*) FROM Room r WHERE r.currentOccupants = r.capacity", Long.class);
             Long fullRooms = fullRoomsQuery.getSingleResult();
 
-            // Đặt thuộc tính vào request
+            // set Attribute
             request.setAttribute("maleStudents", maleStudents);
             request.setAttribute("femaleStudents", femaleStudents);
             request.setAttribute("studentsWithRooms", studentsWithRooms);
@@ -187,6 +188,7 @@ public class DashboardAdminServlet extends HttpServlet {
             request.setAttribute("vacantRooms", vacantRooms);
             request.setAttribute("fullRooms", fullRooms);
             
+            // Xử lý Chat (websocket của tab Chat)
             //Web socket
             Query<Student> studentQuery = session.createQuery("FROM Student", Student.class);
             request.setAttribute("allStudents", studentQuery.list());
@@ -217,6 +219,7 @@ public class DashboardAdminServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String action = request.getParameter("action");
+        // Xóa sinhvien trong 'quản lý Sinh Viên'
         if ("delete".equals(action)) {
             String id = request.getParameter("ids");
             try (Session session = sessionFactory.openSession()) {
@@ -250,6 +253,7 @@ public class DashboardAdminServlet extends HttpServlet {
                 e.printStackTrace();
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Lỗi khi xóa sinh viên");
             }
+        // xóa phòng trong tab 'quản lý phòng'
         } else if ("deleteRoom".equals(action)) {
             String roomId = request.getParameter("roomId");
             try (Session session = sessionFactory.openSession()) {

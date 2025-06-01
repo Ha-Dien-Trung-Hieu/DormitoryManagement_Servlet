@@ -49,7 +49,7 @@ public class RoomServlet extends HttpServlet {
         }
     }
 
-    // Xử lý yêu cầu lấy danh sách phòng cho admin dashboard
+    // Lấy danh sách phòng cho admin dashboard
     private void handleGetRoomsForAdmin(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Session session = null;
@@ -83,7 +83,7 @@ public class RoomServlet extends HttpServlet {
         }
     }
 
-    // Xử lý yêu cầu lấy danh sách phòng dưới dạng JSON cho student dashboard
+    // Lấy danh sách phòng dưới dạng JSON cho student dashboard
     private void handleGetRoomsJson(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
@@ -110,19 +110,21 @@ public class RoomServlet extends HttpServlet {
             query.setParameter("floorPrefix", floorPrefix + "%");
             List<Room> rooms = query.getResultList();
 
-            // Chuyển đổi dữ liệu thành JSON
+            // Chuyển đổi dữ liệu thành JSON cho dashboard
             List<Map<String, Object>> roomData = rooms.stream().map(room -> {
                 Map<String, Object> map = new HashMap<>();
-                map.put("roomName", room.getRoomName() != null ? room.getRoomName() : "");
-                map.put("roomType", room.getRoomType() != null ? room.getRoomType() : "");
+                map.put("roomName", room.getRoomName() != null && !room.getRoomName().isEmpty() ? room.getRoomName() : "Không xác định");
+                map.put("roomType", room.getRoomType() != null && !room.getRoomType().isEmpty() ? room.getRoomType() : "Không xác định");
                 map.put("price", room.getPrice() != null ? room.getPrice() : 0L);
                 map.put("capacity", room.getCapacity() != null ? room.getCapacity() : 0);
                 map.put("currentOccupants", room.getCurrentOccupants() != null ? room.getCurrentOccupants() : 0);
+                System.out.println("Room data: " + map);
                 return map;
             }).collect(Collectors.toList());
             
             // Gửi JSON về client
             response.getWriter().write(new Gson().toJson(roomData));
+            System.out.println("Sent JSON response with " + roomData.size() + " rooms");
         } catch (Exception e) {
             e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

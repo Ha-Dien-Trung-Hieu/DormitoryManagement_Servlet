@@ -10,6 +10,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import util.CommonLogger;
 import util.HibernateUtil;
 
 import java.io.IOException;
@@ -62,17 +64,19 @@ public class EditRoomServlet extends HttpServlet {
                 default: throw new Exception("BuildingID không hợp lệ!");
             }
             String roomName = buildingPrefix + floor + String.format("%02d", Integer.parseInt(roomNumber));
-            
-            Map<String, Integer> capacityMap = new HashMap<>();
-            capacityMap.put("Đơn", 1);
-            capacityMap.put("Đôi", 2);
-            capacityMap.put("Tập thể", 4);
-            int capacity = capacityMap.getOrDefault(roomType, 1);
-
+         
             SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
 
+            Room existingRoom = session.createQuery("FROM Room r WHERE r.roomName = :roomName AND r.roomID != :roomID", Room.class)
+                    .setParameter("roomName", roomName)
+                    .setParameter("roomID", roomID)
+                    .getSingleResultOrNull();
+                if (existingRoom != null) {
+                    throw new IllegalArgumentException("Phòng " + roomName + " đã tồn tại!");
+                }
+                
             Room room = session.get(Room.class, Long.parseLong(roomID));
             if (room == null) {
                 throw new Exception("Phòng không tồn tại!");
@@ -82,6 +86,13 @@ public class EditRoomServlet extends HttpServlet {
             if (building == null) {
                 throw new Exception("Tòa nhà không tồn tại!");
             }
+            
+            int capacity = switch (roomType) {
+            case "Đơn" -> 1;
+            case "Đôi" -> 2;
+            case "Tập thể" -> 4;
+            default -> throw new IllegalArgumentException("Loại phòng không hợp lệ!");
+            };
 
             room.setBuilding(building);
             room.setRoomType(roomType);
@@ -92,6 +103,8 @@ public class EditRoomServlet extends HttpServlet {
             session.merge(room);
             transaction.commit();
             session.close();
+            
+            CommonLogger.logEvent("Phòng " + roomName + " đã được chỉnh sửa!");
 
             response.sendRedirect(request.getContextPath() + "/admin/dashboard?section=rooms");
         } catch (Exception e) {

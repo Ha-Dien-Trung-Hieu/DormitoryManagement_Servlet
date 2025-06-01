@@ -41,10 +41,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import util.HibernateUtil;
-/**
- * Servlet tạo hóa đơn PDF dùng iText 9.1.0.
- * Font Arial cho Unicode, màu chữ từ DeviceRgb, không dùng màu nền ô.
- */
+
 @WebServlet("/student/printInvoice")
 public class PrintInvoiceServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;

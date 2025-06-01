@@ -1,4 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" import="entity.Student" %>
+<%@page import="entity.Contract"%>
+<%@page import="java.util.concurrent.TimeUnit"%>
+<%@page import="java.time.Duration"%>
+<%@page import="java.time.LocalDateTime"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="true" import="entity.Student" import="java.util.Date" %>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
@@ -138,7 +142,26 @@
         .content-table tr:first-child {
             background: rgba(78, 115, 223, 0.1); 
         }
-        
+         .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
         /* BookRoom */
 		.grid-cols-5 {
 		    display: grid;
@@ -156,6 +179,10 @@
 		    text-align: center;
 		    min-height: 150px;
 		    background-color: #ffffff;
+		    display: block; 
+		    width: auto; 
+		    height: auto; 
+		    overflow: visible !important;
 		}
 		
 		.room-card p {
@@ -181,7 +208,15 @@
 		.bg-blue-200 {
 		    background-color: #bfdbfe;
 		}
+		.bg-blue-400 {
+		    background-color: #8BF3B1; 
+		    border: 2px solid #1AE6A2; 
+		}
 		
+		.room-card.bg-blue-400 {
+		    background-color: #8BF3B1 !important;
+		    border: 2px solid #1AE6A2 !important;
+		}
 		.flex {
 		    display: flex;
 		}
@@ -386,20 +421,30 @@
             cursor: not-allowed;
             transform: none;
         }
-        .alert {
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            font-size: 14px;
+       
+        
+        /* Invoices */
+        .invoices-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
         }
-        .alert-success {
-            background: #e0f7e9;
-            color: #27ae60;
+        .invoices-card h3 {
+            width: 100%;
+            margin-bottom: 10px;
         }
-        .alert-danger {
-            background: #fce4e4;
-            color: #e74c3c;
+        .invoices-card p {
+            margin: 10px 0;
+            width: 100%;
+        }
+        .invoices-card img {
+            max-width: 50%;
+            height: auto;
+            margin: 20px 0;
+        }
+        .invoices-card .btn-print {
+            margin-top: 20px;
         }
         /* Right */
         .avatar-upload {
@@ -564,14 +609,16 @@
             <!-- Thông báo -->
             <c:if test="${not empty error}">
                 <div class="alert alert-danger">
-                    <c:choose>
-                        <c:when test="${error == 'server_error'}">Lỗi hệ thống, vui lòng thử lại!</c:when>
-                        <c:when test="${error == 'invalid_room_id'}">ID phòng không hợp lệ!</c:when>
+                     <c:choose>
+                        <c:when test="${error == 'not_authenticated'}">Vui lòng đăng nhập lại!</c:when>
+                        <c:when test="${error == 'already_in_dormitory'}">Bạn đã ở trong ký túc xá!</c:when>
+                        <c:when test="${error == 'already_has_active_contract'}">Bạn đã có hợp đồng hoạt động!</c:when>
+                        <c:when test="${error == 'invalid_room_name'}">Tên phòng không hợp lệ!</c:when>
                         <c:when test="${error == 'room_not_found'}">Phòng không tồn tại!</c:when>
+                        <c:when test="${error == 'room_locked'}">Phòng đang bị khóa, còn ${limitRemainingTime} ngày!</c:when>
                         <c:when test="${error == 'room_full'}">Phòng đã đầy!</c:when>
-                        <c:when test="${error == 'booking_failed'}">
-                            Đặt phòng thất bại! Lý do: ${not empty param.reason ? param.reason : 'Không xác định'}
-                        </c:when>
+                        <c:when test="${error == 'booking_failed'}">Đặt phòng thất bại: ${param.reason}</c:when>
+                        <c:otherwise>Lỗi không xác định: ${error}</c:otherwise>
                     </c:choose>
                 </div>
             </c:if>
@@ -581,36 +628,53 @@
             <c:if test="${param.message == 'update_success'}">
                 <div class="alert alert-success">Cập nhật thông tin thành công!</div>
             </c:if>
-			<!-- Dùng time để hiển thị cho Student biết khi nào cần thanh toán -->
-			<c:if test="${not empty lockRemainingTime and lockRemainingTime > 0}">
-			    <div class="alert alert-warning">
-			        Phòng đã bị khóa. Thời gian để thanh toán: <span id="lockTimer"></span>
-			        <input type="hidden" id="lockRemainingTime" value="${lockRemainingTime * 24 * 60 * 60 * 1000}">
-			    </div>
-			    <script>
-			        function updateLockTimer() {
-			            const remainingTime = parseInt(document.getElementById('lockRemainingTime').value);
-			            if (remainingTime > 0) {
-			                const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24)); // 24h
-			                const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); //1h
-			                const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60)); // 1p
-			                const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000); // 1s
-			                document.getElementById('lockTimer').innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-			                setTimeout(updateLockTimer, 1000);
-			                document.getElementById('lockRemainingTime').value = remainingTime - 1000;
-			            } else {
-			                document.getElementById('lockTimer').innerText = "Đã mở khóa";
-			            }
-			        }
-			        updateLockTimer();
-			    </script>
-			</c:if>
+			<!-- Thông báo thời gian thanh toán cho hợp đồng Pending -->
+		    <c:if test="${not empty student and not empty student.contract and student.contract.status == 'Pending'}">
+                <div class="alert alert-warning">
+                    Phòng đã được đặt và đang chờ thanh toán. Thời gian còn lại: <span id="lockTimerPending">Đang tính toán...</span>
+                    <%
+                        long remainingTimeMillis = 0;
+                        String debugInfo = "";
+                        try {
+                            Student student = (Student) session.getAttribute("student");
+                            Contract contract = student.getContract();
+                            if (contract != null) {
+                                LocalDateTime startDate = contract.getStartDate();
+                                LocalDateTime now = LocalDateTime.now(java.time.ZoneId.of("Asia/Ho_Chi_Minh"));
+                                if (startDate != null) {
+                                    long elapsedMillis = Duration.between(startDate, now).toMillis();
+                                    remainingTimeMillis = TimeUnit.DAYS.toMillis(3) - elapsedMillis;
+                                    if (remainingTimeMillis < 0) {
+                                        remainingTimeMillis = 0;
+                                        debugInfo = "Hợp đồng đã hết hạn thanh toán.";
+                                    }
+                                    debugInfo = "contractID=" + contract.getContractID() + ", startDate=" + startDate + ", now=" + now + ", elapsedMillis=" + elapsedMillis + ", remainingTimeMillis=" + remainingTimeMillis;
+                                } else {
+                                    debugInfo = "startDate is null for contractID=" + contract.getContractID();
+                                    remainingTimeMillis = 0;
+                                }
+                            } else {
+                                debugInfo = "contract is null for studentID=" + student.getIdSinhVien();
+                                remainingTimeMillis = 0;
+                            }
+                        } catch (Exception e) {
+                            debugInfo = "Exception: " + e.getMessage();
+                            remainingTimeMillis = 0;
+                        }
+                        out.println("<!-- Debug: " + debugInfo + " -->");
+                    %>
+                    <input type="hidden" id="lockRemainingTimeInputPending" value="<%= remainingTimeMillis %>">
+                    <c:if test="<%= remainingTimeMillis <= 0 %>">
+                        <p class="text-red-500">Hết thời gian thanh toán! Vui lòng liên hệ quản lý ký túc xá để gia hạn.</p>
+                    </c:if>
+                </div>
+            </c:if>
             <c:choose>
                 <c:when test="${param.section == 'home' || empty param.section}">
                     <div class="content-card">
                         <h3>Thông tin phòng</h3>
                         <c:choose>
-                            <c:when test="${not empty student.contract and student.contract.status == 'Active'}">
+                            <c:when test="${not empty student.contract and (student.contract.status == 'Active') or (student.contract.status == 'Pending')}">
                                 <table class="content-table">
                                     <tr>
                                         <th>Phòng:</th>
@@ -694,12 +758,12 @@
 				                    <div class="w-3/4 bg-gray-50 p-6 rounded-lg shadow-sm">
 				                        <h2 class="text-lg font-semibold mb-4 text-gray-800" id="gridTitle">Phòng - Tòa A, Tầng 1</h2>
 				                        <div id="roomGrid" class="grid grid-cols-5 gap-4"></div>
-				                        <form id="bookRoomForm" action="<%=request.getContextPath()%>/student/bookRoom" method="POST" class="mt-6">
-				                            <input type="hidden" id="selectedRoomName" name="roomName" value="">
-				                            <button type="submit" id="submitButton" class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
-				                                Đặt phòng
-				                            </button>
-				                        </form>
+										<form id="bookRoomForm" action="<%=request.getContextPath()%>/student/bookRoom" method="POST" class="mt-6">
+										    <input type="hidden" id="selectedRoomName" name="roomName" value="">
+										    <button type="submit" id="submitButton" class="bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed" disabled>
+										        Đặt phòng
+										    </button>
+										</form>
 				                    </div>
 				                </div>
 				            </c:otherwise>
@@ -707,18 +771,16 @@
 				    </div>
 				</c:when>
                 <c:when test="${param.section == 'invoices'}">
-                    <div class="content-card">
-                        <h3>Hóa đơn <c:if test="${not empty unpaidInvoices and unpaidInvoices.size() > 0}">(Chưa thanh toán)</c:if><c:if test="${empty unpaidInvoices}">(Đã thanh toán)</c:if></h3>
+                   <div class="content-card invoices-card p-4 bg-white rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Hóa đơn <c:if test="${not empty unpaidInvoices and unpaidInvoices.size() > 0}">(Chưa thanh toán)</c:if><c:if test="${empty unpaidInvoices}">(Đã thanh toán)</c:if></h3>
                         <c:choose>
-                            <c:when test="${not empty student.contract and student.contract.status == 'Active'}">
+                            <c:when test="${not empty student.contract and (student.contract.status == 'Active' or student.contract.status == 'Pending')}">
 									<p>Số tiền cần chuyển: 
 									    <fmt:formatNumber value="${student.contract.room.price}" type="number" groupingUsed="true"/> VNĐ
 									</p>                                
-								<div style="text-align: center; margin-top: 20px;">
                                     <!-- Hoặc chèn hình ảnh QR -->
-                                    <img src="<%=request.getContextPath()%>/images/qr_code.jpg" alt="QR Code" style="width: 50%; height: auto;">
-                                </div>	
-                                <p>Thanh toán theo cú pháp: <strong>${student.idSinhVien}_${student.fullName}_${student.contract.room.roomID}</strong></p>
+                                    <img src="<%=request.getContextPath()%>/images/qr_code.jpg" alt="QR Code" style="width: 50%; height: auto;">	
+                                	<p>Thanh toán theo cú pháp: <strong>${student.idSinhVien}_${student.contract.room.roomName}_NOPHOCPHI2025</strong></p>
                                 <button class="btn-print" onclick="window.location.href='<%=request.getContextPath()%>/student/printInvoice?contractID=${student.contract.contractID}'">IN HÓA ĐƠN</button>
                                 
                             </c:when>
@@ -775,11 +837,11 @@
 				    </div>
 				</c:when>
                 <c:otherwise>
-                    <div class="content-card">
-                        <h3>Phần không tồn tại</h3>
-                        <p class="error-message">Phần yêu cầu không tồn tại.</p>
-                    </div>
-                </c:otherwise>
+				 <div class="content-card">
+	                <h3 class="text-xl font-bold mb-4">Thông tin</h3>
+	                <!-- [Giữ nguyên nội dung của section home] -->
+	             </div>
+               </c:otherwise>
             </c:choose>
         </div>
 
@@ -858,25 +920,58 @@
     </div>
 
     
-    <script>
-    <!-- Đặt phòng -->
+   <script type="text/javascript">
+(function () {
     document.addEventListener('DOMContentLoaded', () => {
-        // Hàm cập nhật tiêu đề lưới
+    	// lock timer
+            const input = document.getElementById('lockRemainingTimeInputPending');
+            const timer = document.getElementById('lockTimerPending');
+            if (input && timer) {
+                let remainingTime = parseFloat(input.value);
+                if (!isNaN(remainingTime) && remainingTime > 0) {
+                    console.log('Timer started with remainingTimeMillis:', remainingTime);
+                    function updateTimer() {
+                        if (remainingTime > 0) {
+                            const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+                            const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+                            timer.textContent = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+                            remainingTime -= 1000;
+                            input.value = remainingTime;
+                            setTimeout(updateTimer, 1000);
+                        } else {
+                            timer.textContent = "Hết thời gian!";
+                        }
+                    }
+                    updateTimer();
+                } else {
+                    console.warn('Invalid or expired time:', remainingTime);
+                    timer.textContent = "Hết thời gian!";
+                }
+            } else {
+                console.error('Timer elements not found');
+                if (timer) timer.textContent = "Lỗi hiển thị thời gian!";
+            }
+            
+        // Book room
+        if (window.room) {
+            console.warn('Biến toàn cục "room" đã tồn tại:', window.room);
+        }
+
         function updateRoomTitle(building, floor) {
             const titleElement = document.getElementById('gridTitle');
             if (titleElement) {
-                titleElement.textContent = `Phòng - ${building}, Tầng ${floor}`;
+                titleElement.textContent = building + ', Tầng ' + floor;
             } else {
                 console.error('Không tìm thấy #gridTitle');
             }
         }
 
-        // Hàm lấy mã tòa từ tên tòa
         function getBuildingCode(buildingName) {
             return buildingName.replace('Tòa ', '');
         }
 
-        // Hàm tải và hiển thị phòng
         function loadRooms() {
             const building = document.querySelector('.tab-link.bg-blue-600')?.dataset.building || 'Tòa A';
             const floor = document.querySelector('.floor-link.bg-blue-600')?.dataset.floor || '1';
@@ -889,122 +984,84 @@
                 return;
             }
 
-            roomGrid.innerHTML = ''; // Xóa lưới cũ
+            roomGrid.innerHTML = '';
             updateRoomTitle(building, floor);
 
-            // Tạo URL
-	        const baseUrl = '<%=request.getContextPath()%>' + '/student/getRooms';
-	        const url = baseUrl + '?building=' + encodeURIComponent(building) + '&floor=' + encodeURIComponent(floorPrefix);
-            console.log('Fetch URL:', url);
+            const url = '<%=request.getContextPath()%>/student/getRooms?building=' + encodeURIComponent(building) + '&floor=' + encodeURIComponent(floorPrefix);
+            console.log('Fetching rooms from URL:', url);
 
             fetch(url)
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Lỗi HTTP: ${response.status}`);
-                    }
+                    if (!response.ok) throw new Error(`Lỗi HTTP: ${response.status}`);
                     return response.json();
                 })
                 .then(rooms => {
-                    console.log('Danh sách phòng:', rooms);
+                    console.log('Danh sách phòng:', JSON.stringify(rooms, null, 2));
 
                     if (!Array.isArray(rooms) || rooms.length === 0) {
-                        roomGrid.innerHTML = '<p class="text-red-500">Không tìm thấy phòng nào</p>';
-                        console.warn('Không có phòng hoặc dữ liệu không phải mảng:', rooms);
+                        roomGrid.innerHTML = '<p class="text-red-500">Tầng này không có phòng!</p>';
                         return;
                     }
 
-                    // Tạo lưới 20 ô (4x5)
                     const grid = Array(20).fill(null);
-
-                    // Ánh xạ phòng vào lưới dựa trên [Số phòng]
-                    rooms.forEach(room => {
-                        if (room.roomName && room.roomName.startsWith(floorPrefix)) {
-                            const roomNumber = parseInt(room.roomName.slice(-2)); // Lấy 2 số cuối (01-20)
-                            if (roomNumber >= 1 && roomNumber <= 20) {
-                                grid[roomNumber - 1] = room; // Gán vào vị trí (0-19)
-                            }
+                    rooms.forEach(roomItem => {
+                        if (roomItem?.roomName?.startsWith(floorPrefix)) {
+                            const roomNumber = parseInt(roomItem.roomName.slice(-2)) - 1;
+                            if (roomNumber >= 0 && roomNumber < 20) grid[roomNumber] = roomItem;
                         }
                     });
 
-                    // Hiển thị từng ô trong lưới
-                    grid.forEach((room, index) => {
+                    grid.forEach((roomItem, index) => {
+                        console.log('Room at index', index, ':', roomItem);
                         const roomCard = document.createElement('div');
                         roomCard.className = 'room-card p-4 border rounded text-center';
 
-                        if (room && room.roomName) {
-                            const isFull = (room.currentOccupants || 0) >= (room.capacity || 0);
-                            roomCard.className += ` ${isFull ? 'bg-gray-200 cursor-not-allowed' : 'bg-green-100 cursor-pointer'}`;
-                            roomCard.dataset.room = room.roomName;
+                        if (roomItem && roomItem.roomName) {
+                            console.log('Processing room data:', roomItem);
 
-                            // Kiểm tra và xử lý dữ liệu phòng
-                            const displayRoomName = room.roomName || 'Không xác định';
-                            const displayOccupants = room.currentOccupants != null ? room.currentOccupants : 0;
-                            const displayCapacity = room.capacity != null ? room.capacity : 0;
-                            const displayRoomType = room.roomType || 'Không xác định';
-                            const displayPrice = (room.price != null && !isNaN(room.price)) ? Number(room.price).toLocaleString('vi-VN') : '0';
+                            // Gán trực tiếp
+                            const displayRoomName = roomItem.roomName || 'Không xác định';
+                            const displayOccupants = Number(roomItem.currentOccupants) || 0;
+                            const displayCapacity = Number(roomItem.capacity) || 0;
+                            const displayRoomType = roomItem.roomType || 'Không xác định';
+                            const displayPrice = roomItem.price ? Number(roomItem.price).toLocaleString('vi-VN') : '0';
 
-                            console.log('Rendering room:', {
-                                roomName: displayRoomName,
-                                occupants: displayOccupants,
-                                capacity: displayCapacity,
-                                roomType: displayRoomType,
-                                price: displayPrice
-                            });
+                            // Gán HTML bằng chuỗi nối
+                            roomCard.innerHTML = '<p><strong>' + displayRoomName + '</strong> (' + displayOccupants + '/' + displayCapacity + ')</p>' +
+                                                '<p>Loại: ' + displayRoomType + '</p>' +
+                                                '<p>Giá: ' + displayPrice + ' VNĐ</p>';
 
-                            // Tạo phần tử HTML riêng biệt
-                            const nameP = document.createElement('p');
-                            const strong = document.createElement('strong');
-                            strong.textContent = displayRoomName;
-                            nameP.appendChild(strong);
-                            const occupancySpan = document.createElement('span');
-                            occupancySpan.textContent = ` (${displayOccupants}/${displayCapacity})`;
-                            nameP.appendChild(occupancySpan);
+                            console.log('HTML content:', roomCard.innerHTML);
 
-                            const typeP = document.createElement('p');
-                            typeP.textContent = `Loại: ${displayRoomType}`;
-
-                            const priceP = document.createElement('p');
-                            priceP.textContent = `Giá: ${displayPrice} VNĐ`;
-
-                            roomCard.appendChild(nameP);
-                            roomCard.appendChild(typeP);
-                            roomCard.appendChild(priceP);
-
-                            // Thêm vòng tròn trạng thái
                             const slotsDiv = document.createElement('div');
                             slotsDiv.className = 'flex justify-center mt-2';
                             for (let i = 0; i < displayCapacity; i++) {
                                 const slot = document.createElement('div');
-                                slot.className = `w-6 h-6 rounded-full ${i < displayOccupants ? 'bg-gray-500' : 'bg-green-500'} mx-1`;
+                                const isSlotOccupied = i < displayOccupants;	
+                                slot.className = 'w-6 h-6 rounded-full ' + (isSlotOccupied ? 'bg-gray-500' : 'bg-green-500') + ' mx-1';
                                 slotsDiv.appendChild(slot);
                             }
                             roomCard.appendChild(slotsDiv);
 
-                            // Sự kiện chọn phòng nếu còn trống
+                            const isFull = displayOccupants >= displayCapacity;
+                            console.log('Debug isFull:', { displayOccupants, displayCapacity, isFull });
+                            roomCard.className += ' ' + (isFull ? 'bg-gray-200 cursor-not-allowed' : 'bg-green-100 cursor-pointer');
                             if (!isFull) {
-                                roomCard.addEventListener('click', () => {
-                                    document.querySelectorAll('.room-card').forEach(r => r.classList.remove('bg-blue-200'));
-                                    roomCard.classList.add('bg-blue-200');
-                                    const selectedRoomInput = document.getElementById('selectedRoomName');
-                                    if (selectedRoomInput) {
-                                        selectedRoomInput.value = room.roomName;
-                                    }
-                                    const submitButton = document.getElementById('submitButton');
-                                    if (submitButton) {
-                                        submitButton.disabled = false;
-                                    }
-                                    console.log('Phòng được chọn:', room.roomName);
+                            	roomCard.addEventListener('click', () => {
+                                    document.querySelectorAll('.room-card').forEach(r => r.classList.remove('bg-blue-400'));
+                                    roomCard.classList.add('bg-blue-400');
+                                    document.getElementById('selectedRoomName').value = displayRoomName;
+                                    document.getElementById('submitButton').disabled = false;
+                                    console.log('Phòng được chọn:', displayRoomName);
                                 });
-                            }
+                           }
                         } else {
-                            // Ô trống nếu không có phòng
                             roomCard.className += ' bg-gray-200 cursor-not-allowed';
-                            roomCard.innerHTML = '<p><strong>Phòng trống</strong></p><p>-</p><p>-</p>';
+                            roomCard.innerHTML = '<p><strong>Phòng trống</strong></p><p></p><p></p>';
                         }
                         roomGrid.appendChild(roomCard);
                     });
-
-                    console.log('Room grid HTML:', roomGrid.innerHTML);
+                    
                 })
                 .catch(error => {
                     console.error('Lỗi khi tải phòng:', error);
@@ -1012,46 +1069,36 @@
                 });
         }
 
-        // Gắn sự kiện cho tabs tòa nhà
-        const tabs = document.querySelectorAll('.tab-link');
-        if (tabs.length === 0) {
-            console.error('Không tìm thấy tab-link');
-        }
-        tabs.forEach(tab => {
+        document.querySelectorAll('.tab-link').forEach(tab => {
             tab.addEventListener('click', () => {
-                tabs.forEach(t => {
+                document.querySelectorAll('.tab-link').forEach(t => {
                     t.classList.remove('bg-blue-600', 'text-white');
                     t.classList.add('bg-gray-200', 'text-gray-700');
                 });
                 tab.classList.remove('bg-gray-200', 'text-gray-700');
                 tab.classList.add('bg-blue-600', 'text-white');
                 loadRooms();
-                console.log('Tòa được chọn:', tab.dataset.building);
             });
         });
 
-        // Gắn sự kiện cho tabs tầng
-        const floors = document.querySelectorAll('.floor-link');
-        if (floors.length === 0) {
-            console.error('Không tìm thấy floor-link');
-        }
-        floors.forEach(floor => {
+        document.querySelectorAll('.floor-link').forEach(floor => {
             floor.addEventListener('click', () => {
-                floors.forEach(f => {
+                document.querySelectorAll('.floor-link').forEach(f => {
                     f.classList.remove('bg-blue-600', 'text-white');
                     f.classList.add('bg-gray-100', 'text-gray-700');
                 });
                 floor.classList.remove('bg-gray-100', 'text-gray-700');
                 floor.classList.add('bg-blue-600', 'text-white');
                 loadRooms();
-                console.log('Tầng được chọn:', floor.dataset.floor);
             });
         });
 
-        // Tải phòng mặc định khi trang được tải
         loadRooms();
     });
-    
+})();
+
+
+
     <!-- Chat Script -->    
 let socket;
 let currentChannel;

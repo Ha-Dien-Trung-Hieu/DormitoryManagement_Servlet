@@ -35,9 +35,7 @@ public class LoginStudentServlet extends HttpServlet {
              ipAddress = forwardedFor.split(",")[0].trim();
          }
 
-         System.out.println("Login attempt: studentID=" + idSinhVien + ", IP=" + ipAddress);   
-         
-         System.out.println("Login attempt: studentID=" + idSinhVien);
+         System.out.println("Login attempt: IDSinhVien=" + idSinhVien);
 
          if (idSinhVien == null || idSinhVien.isEmpty() ||
                  password   == null || password.isEmpty()) {

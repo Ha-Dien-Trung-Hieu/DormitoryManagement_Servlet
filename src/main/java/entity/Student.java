@@ -8,11 +8,7 @@ import jakarta.persistence.*;
 @Table(name = "student")
 public class Student {
     @Id
-    @Column(name = "StudentID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer studentID;
-
-    @Column(name = "IDSinhVien", unique = true, nullable = false)
+    @Column(name = "IDSinhVien")
     private String idSinhVien;
 
     @Column(name = "FullName", nullable = false)
@@ -52,13 +48,9 @@ public class Student {
     @OneToOne(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Contract contract;
     
-    // Constructor mặc định (yêu cầu bởi Hibernate)
     public Student() {}
 
     // Getters và Setters
-    public Integer getStudentID() { return studentID; }
-    public void setStudentID(Integer studentID) { this.studentID = studentID; }
-    
     public String getIdSinhVien() { return idSinhVien; }
     public void setIdSinhVien(String idSinhVien) { this.idSinhVien = idSinhVien; }
     
@@ -92,7 +84,7 @@ public class Student {
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
     
-    public Contract getContract() { return contract; }
+    public Contract getContract() { return this.contract; }
     public void setContract(Contract contract) { this.contract = contract; }
     
     public byte[] getAvatar() { return avatar; }

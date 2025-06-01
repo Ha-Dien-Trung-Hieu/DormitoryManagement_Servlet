@@ -4,12 +4,14 @@ import entity.Contract;
 import entity.Invoice;
 import entity.Room;
 import entity.Student;
+
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import util.CommonLogger;
 import util.HibernateUtil;
-
+import jakarta.persistence.LockModeType;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -19,6 +21,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -30,8 +34,15 @@ import java.util.concurrent.locks.ReentrantLock;
 
 @WebServlet("/student/bookRoom")
 public class RoomBookingServlet extends HttpServlet {
-	private static final ConcurrentHashMap<String, Date> roomLockTimes = new ConcurrentHashMap<>();
+    private static final ReentrantLock bookingLock = new ReentrantLock();
 	private static final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+	
+    @Override
+    public void init() throws ServletException {
+        java.util.TimeZone.setDefault(java.util.TimeZone.getTimeZone("Asia/Ho_Chi_Minh"));
+    }
+
+   
 	@Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Student student = (Student) request.getSession().getAttribute("student");
@@ -47,7 +58,7 @@ public class RoomBookingServlet extends HttpServlet {
 
         String roomName;
         try {
-            roomName = request.getParameter("RoomName");
+            roomName = request.getParameter("roomName");
             if (roomName == null || roomName.trim().isEmpty()) {
                 throw new Exception("RoomName không hợp lệ!");
             }
@@ -55,13 +66,26 @@ public class RoomBookingServlet extends HttpServlet {
             response.sendRedirect(request.getContextPath() + "/student/dashboard?error=invalid_room_name");
             return;
         }
-
+        bookingLock.lock();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-
-            // Kiểm tra hợp đồng hoạt động
+            
+            // Xóa hợp đồng Pending cũ
+            List<Contract> pendingContracts = session.createQuery(
+                    "FROM Contract c WHERE c.student = :student AND c.status = 'Pending'", Contract.class)
+                .setParameter("student", student)
+                .getResultList();
+            for (Contract oldContract : pendingContracts) {
+                Room oldRoom = oldContract.getRoom();
+                oldRoom.setCurrentOccupants(oldRoom.getCurrentOccupants() - 1);
+                session.delete(oldContract);
+                session.update(oldRoom);
+                CommonLogger.logEvent("Xóa hợp đồng Pending cũ: IDSinhVien=" + student.getIdSinhVien() + ", room=" + oldRoom.getRoomName());
+            }
+            
+            // Kiểm tra hợp đồng Active
             List<Contract> activeContracts = session.createQuery(
                     "FROM Contract c WHERE c.student = :student AND c.status = 'Active'", Contract.class)
                 .setParameter("student", student)
@@ -73,37 +97,22 @@ public class RoomBookingServlet extends HttpServlet {
 
             Room room = session.createQuery("FROM Room r WHERE r.roomName = :roomName", Room.class)
                     .setParameter("roomName", roomName)
+                    .setLockMode(LockModeType.PESSIMISTIC_WRITE)
                     .uniqueResult();
-                if (room == null) {
+            if (room == null) {
                     response.sendRedirect(request.getContextPath() + "/student/dashboard?error=room_not_found");
                     return;
-                }
-                
-                Date lockTime = roomLockTimes.get(roomName);
-                if (lockTime != null) {
-                    long timeElapsed = new Date().getTime() - lockTime.getTime();
-                    if (timeElapsed < TimeUnit.DAYS.toMillis(3) && room.getCurrentOccupants() >= room.getCapacity()) {
-                        long remainingDays = 3 - TimeUnit.MILLISECONDS.toDays(timeElapsed);
-                        request.setAttribute("lockRemainingTime", remainingDays);
-                        response.sendRedirect(request.getContextPath() + "/student/dashboard?error=room_locked");
-                        return;
-                    } else {
-                        roomLockTimes.remove(roomName); // Open nếu quá 3 ngày or phòng k đầy
-                    }
-                }
-
-                if (room.getCurrentOccupants() >= room.getCapacity()) {
-                    // Khóa lại nếu đầy phòng
-                    roomLockTimes.put(roomName, new Date());
-                    scheduler.schedule(() -> roomLockTimes.remove(roomName), 3, TimeUnit.DAYS);
-                    response.sendRedirect(request.getContextPath() + "/student/dashboard?error=room_full");
-                    return;
-                }
-                
+            }
+            if (room.getCurrentOccupants() >= room.getCapacity()) {
+                response.sendRedirect(request.getContextPath() + "/student/dashboard?error=room_full");
+                return;
+            }
+  
             Contract contract = new Contract();
             contract.setStudent(student);
             contract.setRoom(room);
-            contract.setStartDate(new Date());
+            LocalDateTime startDate = LocalDateTime.now(ZoneId.of("Asia/Ho_Chi_Minh"));
+            contract.setStartDate(startDate);
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(new Date());
             calendar.add(Calendar.YEAR, 1);
@@ -111,7 +120,7 @@ public class RoomBookingServlet extends HttpServlet {
             contract.setStatus("Pending");
             
             room.setCurrentOccupants(room.getCurrentOccupants() + 1);
-            student.setStatus("Pending");
+            student.setStatus("InDormitory");
 
             session.save(contract);
             
@@ -130,10 +139,11 @@ public class RoomBookingServlet extends HttpServlet {
             
             // Ghi log
             CommonLogger.logEvent("Sinh viên ID " + student.getIdSinhVien() + " đã đặt phòng " + roomName);
-            
             tx.commit();
 
-            response.sendRedirect(request.getContextPath() + "/student/bookRoom.jsp");
+            request.getSession().setAttribute("student", student); 
+            CommonLogger.logEvent("Stored student in session: studentID=" + student.getIdSinhVien() + ", sessionID=" + request.getSession().getId());
+            response.sendRedirect(request.getContextPath() + "/student/bookRoom.jsp?message=booking_success");
         } catch (Exception e) {
             if (tx != null) {
                 tx.rollback();
@@ -143,5 +153,33 @@ public class RoomBookingServlet extends HttpServlet {
         } finally {
             session.close();
         }
+    }
+	static {
+        scheduler.scheduleAtFixedRate(() -> {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            Transaction tx = null;
+            try {
+                tx = session.beginTransaction();
+                List<Contract> expiredContracts = session.createQuery(
+                        "FROM Contract c WHERE c.status = 'Pending' AND c.startDate < :threeDaysAgo", Contract.class)
+                        .setParameter("threeDaysAgo", LocalDateTime.now(ZoneId.of("Asia/Ho_Chi_Minh")).minusDays(3))
+                        .getResultList();
+                for (Contract contract : expiredContracts) {
+                    Room room = contract.getRoom();
+                    room.setCurrentOccupants(room.getCurrentOccupants() - 1);
+                    contract.getStudent().setStatus("NotInDormitory");
+                    session.delete(contract);
+                    session.update(room);
+                    session.update(contract.getStudent());
+                    CommonLogger.logEvent("Hủy hợp đồng hết hạn: contractID=" + contract.getContractID() + ", room=" + room.getRoomName());
+                }
+                tx.commit();
+            } catch (Exception e) {
+                if (tx != null) tx.rollback();
+                CommonLogger.logEvent("Lỗi khi hủy hợp đồng hết hạn: " + e.getMessage());
+            } finally {
+                session.close();
+            }
+        }, 0, 1, TimeUnit.HOURS);
     }
 }

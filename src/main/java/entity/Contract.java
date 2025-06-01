@@ -1,6 +1,8 @@
 package entity;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -11,8 +13,8 @@ public class Contract {
     @Column(name = "ContractID")
     private Integer contractID;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "StudentID")
+    @ManyToOne
+    @JoinColumn(name = "IDSinhVien")
     private Student student;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -20,8 +22,7 @@ public class Contract {
     private Room room;
 
     @Column(name = "StartDate")
-    @Temporal(TemporalType.DATE)
-    private Date startDate;
+    private LocalDateTime startDate;
 
     @Column(name = "EndDate")
     @Temporal(TemporalType.DATE)
@@ -41,8 +42,8 @@ public class Contract {
     public Room getRoom() { return room; }
     public void setRoom(Room room) { this.room = room; }
     
-    public Date getStartDate() { return startDate; }
-    public void setStartDate(Date startDate) { this.startDate = startDate; }
+    public LocalDateTime getStartDate() { return startDate; }
+    public void setStartDate(LocalDateTime startDate) { this.startDate = startDate; }
     
     public Date getEndDate() { return endDate; }
     public void setEndDate(Date endDate) { this.endDate = endDate; }

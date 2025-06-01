@@ -131,5 +131,24 @@
             <button type="button" class="btn btn-secondary" onclick="window.location.href='${pageContext.request.contextPath}/admin/dashboard?section=rooms'">Quay Lại</button>
         </form>
     </div>
+    
+     <script>
+        function updateCapacity() {
+            const roomType = document.getElementById("roomType").value;
+            const capacityInput = document.getElementById("capacity");
+            switch (roomType) {
+                case "Đơn":
+                    capacityInput.value = 1;
+                    break;
+                case "Đôi":
+                    capacityInput.value = 2;
+                    break;
+                case "Tập thể":
+                    capacityInput.value = 4;
+                    break;
+            }
+        }
+        updateCapacity();
+    </script>
 </body>
 </html>

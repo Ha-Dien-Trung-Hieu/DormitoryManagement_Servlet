@@ -25,11 +25,10 @@ import java.util.List;
 import java.util.Map;
 
 @WebServlet("/student/dashboard")
-public class DashboardServlet extends HttpServlet {
+public class DashboardStudentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     private SessionFactory sessionFactory;
 
-    
     @Override
     public void init() throws ServletException {
         sessionFactory = HibernateUtil.getSessionFactory();
@@ -48,17 +47,13 @@ public class DashboardServlet extends HttpServlet {
 
         try {
             tx = session.beginTransaction();
-            Student fullStudent = session.createQuery(
-                    "SELECT s FROM Student s " +
-                    "LEFT JOIN FETCH s.contract c " +
-                    "LEFT JOIN FETCH c.room r " +
-                    "WHERE s.studentID = :studentID",
-                    Student.class)
-                .setParameter("studentID", student.getStudentID())
+            Student fullStudent = session.createQuery("SELECT s FROM Student s LEFT JOIN FETCH s.contract c LEFT JOIN FETCH c.room r "
+            		+ "WHERE s.idSinhVien = :idSinhVien",Student.class)
+                .setParameter("idSinhVien", student.getIdSinhVien())
                 .uniqueResult();
 
             if (fullStudent == null) {
-                System.out.println("Error: Student not found for StudentID: " + student.getStudentID());
+                System.out.println("Error: Student not found for IDSinhVien: " + student.getIdSinhVien());
                 response.sendRedirect(request.getContextPath() + "/student/login.jsp?error=not_authenticated");
                 return;
             }
@@ -76,10 +71,10 @@ public class DashboardServlet extends HttpServlet {
             if (fullStudent.getContract() != null && "Active".equals(fullStudent.getContract().getStatus()) && fullStudent.getContract().getRoom() != null) {
                 roommates = session.createQuery(
                         "SELECT s FROM Contract c JOIN c.student s " +
-                        "WHERE c.room = :room AND s.studentID != :studentID AND c.status = 'Active'",
+                        "WHERE c.room = :room AND s.idSinhVien != :idSinhVien AND c.status = 'Active'",
                         Student.class)
                     .setParameter("room", fullStudent.getContract().getRoom())
-                    .setParameter("studentID", fullStudent.getStudentID())
+                    .setParameter("idSinhVien", fullStudent.getIdSinhVien())
                     .getResultList();
                 System.out.println("Roommates found: " + roommates.size());
             } else {

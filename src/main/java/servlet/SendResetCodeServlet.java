@@ -70,9 +70,9 @@ public class SendResetCodeServlet extends HttpServlet {
     }
 
     private boolean sendEmail(String toEmail, String resetCode) {
-        // Cấu hình email (sử dụng Gmail SMTP)
-        String fromEmail = "trunghieu27032006@gmail.com"; // Thay bằng email của bạn
-        String password = "olbxmlmhrqqjrvum"; // Thay bằng App Password của Gmail
+        // Gmail SMTP
+        String fromEmail = "trunghieu27032006@gmail.com"; 
+        String password = "olbxmlmhrqqjrvum"; // App Password của Gmail
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");

@@ -2,6 +2,7 @@ package servlet;
 
 import entity.Contract;
 import entity.Student;
+import util.CommonLogger;
 import util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -18,12 +19,13 @@ import java.util.List;
 
 @WebServlet("/students")
 public class DeleteStudentServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String studentId = request.getParameter("ids");
+        String idSinhVien = request.getParameter("idSinhVien");
 
-        if (studentId == null || studentId.trim().isEmpty()) {
+        if (idSinhVien == null || idSinhVien.trim().isEmpty()) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID sinh viên không hợp lệ");
             return;
         }
@@ -36,7 +38,7 @@ public class DeleteStudentServlet extends HttpServlet {
 
             Query<Student> studentQuery = session.createQuery(
                     "FROM Student s WHERE s.idSinhVien = :idSinhVien", Student.class);
-            studentQuery.setParameter("idSinhVien", studentId);
+            studentQuery.setParameter("idSinhVien", idSinhVien);
             Student student = studentQuery.uniqueResult();
 
             if (student == null) {
@@ -46,7 +48,7 @@ public class DeleteStudentServlet extends HttpServlet {
 
             Query<Contract> contractQuery = session.createQuery(
                     "FROM Contract c WHERE c.student.idSinhVien = :idSinhVien", Contract.class);
-            contractQuery.setParameter("idSinhVien", studentId);
+            contractQuery.setParameter("idSinhVien", idSinhVien);
             List<Contract> contracts = contractQuery.list();
 
             if (!contracts.isEmpty()) {
@@ -71,6 +73,8 @@ public class DeleteStudentServlet extends HttpServlet {
             session.remove(student);
 
             tx.commit();
+            
+            CommonLogger.logEvent("Sinh viên ID " + idSinhVien + " đã được xóa");
 
             response.setContentType("text/plain");
             response.setStatus(HttpServletResponse.SC_OK);

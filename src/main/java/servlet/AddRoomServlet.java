@@ -10,6 +10,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import util.CommonLogger;
 import util.HibernateUtil;
 
 import java.io.IOException;
@@ -54,6 +56,7 @@ public class AddRoomServlet extends HttpServlet {
             }
             String roomName = buildingPrefix + floor + String.format("%02d", Integer.parseInt(roomNumber));
             
+            
             SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
             if (sessionFactory == null) {
                 throw new Exception("SessionFactory is null!");
@@ -61,11 +64,26 @@ public class AddRoomServlet extends HttpServlet {
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
 
+            // kt đã tồn tại chưa
+            Room existingRoom = session.createNamedQuery("FROM Room r WHERE r.roomName = :roomName", Room.class)
+                    .setParameter("roomName", roomName)
+                    .getSingleResultOrNull();
+                if (existingRoom != null) {
+                    throw new IllegalArgumentException("Phòng " + roomName + " đã tồn tại!");
+                }
+
             Building building = session.get(Building.class, Long.parseLong(buildingID));
             if (building == null) {
                 throw new Exception("Tòa nhà không tồn tại!");
             }
             
+            capacity = switch (roomType) {
+            case "Đơn" -> 1;
+            case "Đôi" -> 2;
+            case "Tập thể" -> 4;
+            default -> throw new IllegalArgumentException("Loại phòng không hợp lệ!");
+        };
+        
             Room room = new Room();
             room.setBuilding(building);
             room.setRoomType(roomType);
@@ -78,6 +96,7 @@ public class AddRoomServlet extends HttpServlet {
             transaction.commit();
             session.close();
 
+            CommonLogger.logEvent("Phòng " + roomName + " đã được tạo mới!");
             response.sendRedirect(request.getContextPath() + "/admin/dashboard?section=rooms");
         } catch (NumberFormatException e) {
             e.printStackTrace();

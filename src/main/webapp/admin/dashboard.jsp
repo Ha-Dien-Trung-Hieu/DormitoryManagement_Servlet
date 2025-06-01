@@ -361,7 +361,7 @@
                                 <tr>
                                     <th>ContractID</th>
                                     <th>IDSinhVien</th>
-                                    <th>RoomID</th>
+                                    <th>Phòng</th>
                                     <th>StartDate</th>
                                     <th>EndDate</th>
                                     <th>Status</th>
@@ -372,7 +372,7 @@
                                     <tr>
                                         <td>${contract.contractID}</td>
                                         <td>${contract.student.idSinhVien}</td>
-                                        <td>${contract.room.roomID}</td>
+                                        <td>${contract.room.roomName}</td>
                                         <td><fmt:formatDate value="${contract.startDate}" pattern="dd/MM/yyyy"/></td>
                                         <td><fmt:formatDate value="${contract.endDate}" pattern="dd/MM/yyyy"/></td>
                                         <td>${contract.status}</td>
@@ -652,7 +652,7 @@
 	        };
 	        xhr.send();
 	    }
-	
+		// sắp xếp có phòng ở tab 'ql sinh vien'
 	    function filterStudentsWithRooms() {
 	    	const currentUrl = new URL(window.location);
 	        const isFiltered = currentUrl.searchParams.get('filter') === 'withRooms';
@@ -689,6 +689,8 @@
 	            alert('Lỗi khi xử lý dữ liệu bảng: ' + e.message);
 	        }
 	    }
+	    
+	   	
 	    function chatWithStudent() {
 	        alert('Chức năng chat với sinh viên sẽ được cập nhật sau.');
 	    }
@@ -882,10 +884,10 @@
             window.location.href = '${pageContext.request.contextPath}/admin/EditInvoiceServlet?invoiceID=' + selectedInvoiceId;
         }
         
-        // Bieu Do Thong Ke
+        // Thống kê trong tab 'thông kê'
         document.addEventListener('DOMContentLoaded', function() {
         if (window.location.search.includes('section=statistics')) {
-            // Biểu đồ tỉ lệ sinh viên nam và nữ
+            // Biểu đồ tròn tỉ lệ nam nữ
             const genderCtx = document.getElementById('genderChart').getContext('2d');
             new Chart(genderCtx, {
                 type: 'pie',
@@ -898,7 +900,7 @@
                 }
             });
 
-            // Biểu đồ tỉ lệ sinh viên có phòng và chưa có
+            // Biểu đồ tròn tỉ lệ có và không có phòng
             const roomStatusCtx = document.getElementById('roomStatusChart').getContext('2d');
             new Chart(roomStatusCtx, {
                 type: 'pie',
@@ -1182,6 +1184,8 @@
 		
 		    chatBox.scrollTop = chatBox.scrollHeight;
 		}
+        
+        // sắp xếp theo IDSinhvien của student trong chat của tab 'chat'
         function filterStudents() {
             const searchInput = document.getElementById('searchStudent').value.toLowerCase();
             const select = document.getElementById('chatWith');
